@@ -1,6 +1,6 @@
 package ua.goit.controller.findServlets;
 
-import ua.goit.dto.CompanyDTO;
+import ua.goit.service.HibernateCompanyService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +11,7 @@ import java.io.IOException;
 
 @WebServlet("/company")
 public class FindCompanyServlet extends HttpServlet {
-    private final CompanyService service = new CompanyService();
+    private final HibernateCompanyService service = new HibernateCompanyService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -20,8 +20,7 @@ public class FindCompanyServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        CompanyDTO result = service.getById(Integer.parseInt(req.getParameter("companyID")));
-        req.setAttribute("result", result);
-        req.getRequestDispatcher("/view/print/printCompany.jsp").forward(req, resp);
+        req.setAttribute("result", service.findById(Integer.parseInt(req.getParameter("companyID"))));
+        req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
     }
 }

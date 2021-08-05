@@ -1,6 +1,6 @@
 package ua.goit.controller.getAllServlets;
 
-import ua.goit.service.ProjectService;
+import ua.goit.service.HibernateProjectService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,10 +11,11 @@ import java.io.IOException;
 
 @WebServlet("/projects")
 public class ProjectsServlet extends HttpServlet {
+    private final HibernateProjectService service = new HibernateProjectService();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ProjectService service = new ProjectService();
-        req.setAttribute("projects", service.getAll());
-        req.getRequestDispatcher("/view/getAll/projects.jsp").forward(req, resp);
+        req.setAttribute("result", service.getAll());
+        req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
     }
 }

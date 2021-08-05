@@ -1,8 +1,7 @@
 package ua.goit.controller.createServlets;
 
 import ua.goit.dto.ProjectDTO;
-import ua.goit.service.ProjectService;
-import ua.goit.view.Util;
+import ua.goit.service.HibernateProjectService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,10 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDate;
 
+import static ua.goit.service.Converter.toProject;
+
 @WebServlet("/addProject")
 public class AddProjectServlet extends HttpServlet {
-    private final ProjectService service = new ProjectService();
-    private final Util util = new Util();
+    private final HibernateProjectService service = new HibernateProjectService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,8 +34,7 @@ public class AddProjectServlet extends HttpServlet {
         } catch (NumberFormatException e){
             e.printStackTrace();
         }
-        ProjectDTO project = service.create(projectDTO);
-        req.setAttribute("result", project);
-        req.getRequestDispatcher("/view/print/printProject.jsp").forward(req, resp);
+        req.setAttribute("result", service.create(toProject(projectDTO)));
+        req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
     }
 }

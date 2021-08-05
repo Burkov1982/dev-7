@@ -15,8 +15,6 @@ import static ua.goit.service.Converter.toCompany;
 @WebServlet("/addCompany")
 public class AddCompanyServlet extends HttpServlet {
     private final HibernateCompanyService hibernateCompanyService = new HibernateCompanyService();
-    private final CompanyService service = new CompanyService();
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("/view/create/addCompany.jsp").forward(req, resp);

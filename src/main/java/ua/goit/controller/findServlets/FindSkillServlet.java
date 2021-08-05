@@ -1,7 +1,6 @@
 package ua.goit.controller.findServlets;
 
-import ua.goit.dto.SkillDTO;
-import ua.goit.service.SkillService;
+import ua.goit.service.HibernateSkillService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +11,7 @@ import java.io.IOException;
 
 @WebServlet("/skill")
 public class FindSkillServlet extends HttpServlet {
-    SkillService service = new SkillService();
+    private final HibernateSkillService service = new HibernateSkillService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -21,9 +20,8 @@ public class FindSkillServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        SkillDTO skill = service.getById(Integer.parseInt(req.getParameter("skillID")));
-        req.setAttribute("result", skill);
-        req.getRequestDispatcher("/view/print/printSkill.jsp").forward(req, resp);
+        req.setAttribute("result", service.findById(Integer.parseInt(req.getParameter("skillID"))));
+        req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
     }
 
 }

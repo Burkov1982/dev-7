@@ -1,7 +1,7 @@
 package ua.goit.controller.updateServlets;
 
 import ua.goit.dto.SkillDTO;
-import ua.goit.service.SkillService;
+import ua.goit.service.HibernateSkillService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,9 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static ua.goit.service.Converter.toSkill;
+
 @WebServlet("/updateSkill")
 public class UpdateSkillServlet extends HttpServlet {
-    SkillService service = new SkillService();
+    private final HibernateSkillService service = new HibernateSkillService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -25,8 +27,7 @@ public class UpdateSkillServlet extends HttpServlet {
         skillDTO.setSkill_id(Integer.parseInt(req.getParameter("skillId")));
         skillDTO.setBranch(req.getParameter("branch"));
         skillDTO.setStage(req.getParameter("stage"));
-        SkillDTO skill = service.update(skillDTO);
-        req.setAttribute("result", skill);
-        req.getRequestDispatcher("/view/print/printSkill.jsp").forward(req, resp);
+        req.setAttribute("result", service.update(toSkill(skillDTO)));
+        req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
     }
 }

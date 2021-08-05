@@ -14,7 +14,6 @@ import static ua.goit.service.Converter.toCompany;
 
 @WebServlet("/updateCompany")
 public class UpdateCompanyServlet extends HttpServlet {
-    private final CompanyService service = new CompanyService();
     private final HibernateCompanyService hibernateCompanyService = new HibernateCompanyService();
 
     @Override
@@ -28,8 +27,6 @@ public class UpdateCompanyServlet extends HttpServlet {
         dto.setCompany_id(Integer.parseInt(req.getParameter("companyId")));
         dto.setCompany_name(req.getParameter("companyName"));
         dto.setHeadquarters(req.getParameter("headquarters"));
-        //CompanyDTO companyDTO = service.update(dto);
-        //req.setAttribute("result", companyDTO);
         req.setAttribute("result", hibernateCompanyService.update(toCompany(dto)));
         req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
     }

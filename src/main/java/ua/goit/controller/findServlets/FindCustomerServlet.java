@@ -1,7 +1,6 @@
 package ua.goit.controller.findServlets;
 
-import ua.goit.dto.CustomerDTO;
-import ua.goit.service.CustomerService;
+import ua.goit.service.HibernateCustomerService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +11,8 @@ import java.io.IOException;
 
 @WebServlet("/customer")
 public class FindCustomerServlet extends HttpServlet {
-    private final CustomerService service = new CustomerService();
+    private final HibernateCustomerService service = new HibernateCustomerService();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("/view/findById/findCustomer.jsp").forward(req, resp);
@@ -20,9 +20,8 @@ public class FindCustomerServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        CustomerDTO customerDTO1 = service.getById(Integer.parseInt(req.getParameter("customerID")));
-        req.setAttribute("result", customerDTO1);
-        req.getRequestDispatcher("/view/print/printCustomer.jsp").forward(req, resp);
+        req.setAttribute("result", service.findById(Integer.parseInt(req.getParameter("customerID"))));
+        req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
     }
 
 }

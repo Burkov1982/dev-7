@@ -1,0 +1,190 @@
+Index: src/main/java/ua/goit/service/CompanyService.java
+===================================================================
+diff --git a/src/main/java/ua/goit/service/CompanyService.java b/src/main/java/ua/goit/service/CompanyService.java
+deleted file mode 100644
+--- a/src/main/java/ua/goit/service/CompanyService.java	(revision 1a6b14e698b535404112631ff0ae7edd163ae2b0)
++++ /dev/null	(revision 1a6b14e698b535404112631ff0ae7edd163ae2b0)
+@@ -1,108 +0,0 @@
+-package ua.goit.service;
+-
+-import ua.goit.config.HibernateDatabaseConnector;
+-import ua.goit.dao.CompanyDAO;
+-import ua.goit.dao.HibernateCompanyDAO;
+-import ua.goit.dao.model.Company;
+-import ua.goit.dto.CompanyDTO;
+-import ua.goit.view.Util;
+-
+-import java.sql.SQLException;
+-import java.util.ArrayList;
+-import java.util.List;
+-
+-import static ua.goit.service.Converter.fromCompany;
+-import static ua.goit.service.Converter.toCompany;
+-
+-public class CompanyService implements Service<CompanyDTO> {
+-    private final Util util = new Util();
+-    CompanyDAO companyDAO = new CompanyDAO();
+-    HibernateCompanyDAO dao = new HibernateCompanyDAO(HibernateDatabaseConnector.getSessionFactory());
+-
+-    @Override
+-    public CompanyDTO create(CompanyDTO companyDTO){
+-        Company company = toCompany(companyDTO);
+-        try {
+-            return fromCompany(companyDAO.create(company));
+-        } catch (SQLException e) {
+-            return null;
+-        }
+-    }
+-
+-    @Override
+-    public String delete(CompanyDTO companyDTO) {
+-        Company company = toCompany(companyDTO);
+-        try {
+-            companyDAO.delete(company.getCompany_id());
+-            return "Your request has been processed successfully";
+-        } catch (SQLException e) {
+-            return "Please delete the entries in the Link section associated with this identifier.";
+-        }
+-    }
+-
+-    @Override
+-    public CompanyDTO update(CompanyDTO companyDTO) {
+-        Company company = toCompany(companyDTO);
+-        try {
+-            return fromCompany(companyDAO.update(company));
+-        } catch (SQLException e) {
+-            return null;
+-        }
+-    }
+-
+-    @Override
+-    public String update(CompanyDTO entity, CompanyDTO newEntity) {
+-        Company company = toCompany(newEntity);
+-        try {
+-            return companyDAO.update(company).toString();
+-        } catch (SQLException e) {
+-            return "An error has occurred, please try to enter data again";
+-        }
+-    }
+-
+-    @Override
+-    public CompanyDTO getById(int id) {
+-        try {
+-            return fromCompany(dao.findById(id));
+-        } catch (Exception e) {
+-            return null;
+-        }
+-    }
+-
+-    public Company findById(int id) {
+-        try {
+-            return dao.findById(id);
+-        } catch (Exception e) {
+-            return null;
+-        }
+-    }
+-
+-    @Override
+-    public List<CompanyDTO> getAll() {
+-        try {
+-            List<Company> companies = companyDAO.getAll();
+-            List<CompanyDTO> companiesDTO = new ArrayList<>();
+-            for (Company company:companies) {
+-                companiesDTO.add(fromCompany(company));
+-            }
+-            return companiesDTO;
+-        } catch (SQLException e) {
+-            return null;
+-        }
+-    }
+-
+-    @Override
+-    public String getAll(CompanyDTO entity) {
+-        try {
+-            List<Company> companies = companyDAO.getAll();
+-            List<CompanyDTO> companiesDTO = new ArrayList<>();
+-            for (Company company:companies) {
+-                companiesDTO.add(fromCompany(company));
+-            }
+-            return util.joinListElements(companiesDTO);
+-        } catch (SQLException e) {
+-            return null;
+-        }
+-    }
+-
+-}
+Index: src/main/java/ua/goit/dao/CompanyDAO.java
+===================================================================
+diff --git a/src/main/java/ua/goit/dao/CompanyDAO.java b/src/main/java/ua/goit/dao/CompanyDAO.java
+deleted file mode 100644
+--- a/src/main/java/ua/goit/dao/CompanyDAO.java	(revision 1a6b14e698b535404112631ff0ae7edd163ae2b0)
++++ /dev/null	(revision 1a6b14e698b535404112631ff0ae7edd163ae2b0)
+@@ -1,68 +0,0 @@
+-package ua.goit.dao;
+-
+-import com.zaxxer.hikari.HikariDataSource;
+-import ua.goit.dao.model.Company;
+-import ua.goit.dao.model.Link;
+-
+-import java.sql.PreparedStatement;
+-import java.sql.ResultSet;
+-import java.sql.SQLException;
+-
+-public class CompanyDAO extends AbstractDAO<Company> {
+-
+-    @Override
+-    protected String getCreateQuery() {
+-        return "INSERT INTO companies (company_name, headquarters) VALUES (?, ?)";
+-    }
+-
+-    @Override
+-    protected String getUpdateQuery() {
+-        return "UPDATE companies SET company_name = ?, headquarters = ? WHERE company_id = ?";
+-    }
+-
+-    @Override
+-    protected String getSelectByIdQuery() {
+-        return "SELECT company_id, company_name, headquarters FROM companies WHERE company_id = ?";
+-    }
+-
+-    @Override
+-    protected PreparedStatement enrichPreparedStatement(HikariDataSource dataSource, Link entity, String command) {
+-        return null;
+-    }
+-
+-    @Override
+-    protected PreparedStatement enrichUpdatePreparedStatement(HikariDataSource dataSource, Link entity, Link oldEntity) {
+-        return null;
+-    }
+-
+-    @Override
+-    protected String getDeleteQuery() {
+-        return "DELETE FROM companies WHERE company_id = ?";
+-    }
+-
+-    @Override
+-    protected String getSelectAllQuery() {
+-        return "SELECT company_id, company_name, headquarters FROM companies";
+-    }
+-
+-    @Override
+-    protected void sendEntity(PreparedStatement statement, Company object) throws SQLException {
+-        if (object.getCompany_id()==null){
+-            statement.setString(1, object.getCompany_name());
+-            statement.setString(2, object.getHeadquarters());
+-        } else{
+-            statement.setString(1, object.getCompany_name());
+-            statement.setString(2, object.getHeadquarters());
+-            statement.setInt(3, object.getCompany_id());
+-        }
+-    }
+-
+-    @Override
+-    protected Company getEntity(ResultSet resultSet) throws SQLException {
+-        Company company = new Company();
+-            company.setCompany_id(resultSet.getInt("company_id"));
+-            company.setCompany_name(resultSet.getString("company_name"));
+-            company.setHeadquarters(resultSet.getString("headquarters"));
+-        return company;
+-    }
+-}

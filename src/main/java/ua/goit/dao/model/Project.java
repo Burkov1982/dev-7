@@ -63,11 +63,11 @@ public class Project {
     @Override
     public String toString(){
         return String.format("""
-                Идентификатор проекта: %s\s
-                Название проета: %s\s
-                Описание проекта: %s\s
-                Стоимость проекта: %s\s
-                Дата начала проекта: %s\s
+                Идентификатор проекта: %s <br>
+                Название проета: %s <br>
+                Описание проекта: %s <br>
+                Стоимость проекта: %s <br>
+                Дата начала проекта: %s <br>
                 """, project_id, project_name, project_description, cost, start_date);
     }
 }

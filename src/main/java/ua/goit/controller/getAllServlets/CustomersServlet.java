@@ -1,6 +1,6 @@
 package ua.goit.controller.getAllServlets;
 
-import ua.goit.service.CustomerService;
+import ua.goit.service.HibernateCustomerService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,10 +11,11 @@ import java.io.IOException;
 
 @WebServlet("/customers")
 public class CustomersServlet extends HttpServlet {
+    private final HibernateCustomerService service = new HibernateCustomerService();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        CustomerService service = new CustomerService();
-        req.setAttribute("customers", service.getAll());
-        req.getRequestDispatcher("/view/getAll/customers.jsp").forward(req, resp);
+        req.setAttribute("result", service.getAll());
+        req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
     }
 }

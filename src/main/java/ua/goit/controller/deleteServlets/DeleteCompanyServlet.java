@@ -14,7 +14,6 @@ import static ua.goit.service.Converter.toCompany;
 
 @WebServlet("/deleteCompany")
 public class DeleteCompanyServlet extends HttpServlet {
-    private final CompanyService service = new CompanyService();
     private final HibernateCompanyService hibernateCompanyService = new HibernateCompanyService();
 
     @Override

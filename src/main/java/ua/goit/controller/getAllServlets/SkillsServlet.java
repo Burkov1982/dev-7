@@ -1,6 +1,6 @@
 package ua.goit.controller.getAllServlets;
 
-import ua.goit.service.SkillService;
+import ua.goit.service.HibernateSkillService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,10 +11,11 @@ import java.io.IOException;
 
 @WebServlet("/skills")
 public class SkillsServlet extends HttpServlet {
+    private final HibernateSkillService service = new HibernateSkillService();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        SkillService service = new SkillService();
-        req.setAttribute("skills", service.getAll());
-        req.getRequestDispatcher("/view/getAll/skills.jsp").forward(req, resp);
+        req.setAttribute("result", service.getAll());
+        req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
     }
 }

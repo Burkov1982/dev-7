@@ -41,9 +41,9 @@ public class Skill {
     @Override
     public String toString() {
        return String.format("""
-               Идентификатор умения: %s\s
-               Специализация: %s\s
-               Уровень умений: %s\s
+               Идентификатор умения: %s <br>
+               Специализация: %s <br>
+               Уровень умений: %s <br>
                """, skill_id, branch, stage);
     }
 }

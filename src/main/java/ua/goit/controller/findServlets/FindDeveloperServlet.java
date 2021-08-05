@@ -1,7 +1,6 @@
 package ua.goit.controller.findServlets;
 
-import ua.goit.dto.DeveloperDTO;
-import ua.goit.service.DeveloperService;
+import ua.goit.service.HibernateDeveloperService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +11,7 @@ import java.io.IOException;
 
 @WebServlet("/developer")
 public class FindDeveloperServlet extends HttpServlet {
-    private final DeveloperService developerService = new DeveloperService();
+    private final HibernateDeveloperService service = new HibernateDeveloperService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -20,9 +19,8 @@ public class FindDeveloperServlet extends HttpServlet {
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        DeveloperDTO result = developerService.getById(Integer.parseInt(req.getParameter("developerID")));
-        req.setAttribute("result", result);
-        req.getRequestDispatcher("/view/print/printDeveloper.jsp").forward(req, resp);
+        req.setAttribute("result", service.findById(Integer.parseInt(req.getParameter("developerID"))));
+        req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
     }
 
 }
