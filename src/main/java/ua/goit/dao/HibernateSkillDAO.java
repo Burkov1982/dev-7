@@ -2,13 +2,16 @@ package ua.goit.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import ua.goit.config.HibernateDatabaseConnector;
 import ua.goit.dao.model.Skill;
 
 import java.util.List;
 
 public class HibernateSkillDAO implements HibernateDAO<Skill>{
-    private final SessionFactory sessionFactory = HibernateDatabaseConnector.getSessionFactory();
+    private final SessionFactory sessionFactory;
+
+    public HibernateSkillDAO(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public Skill findById(Integer id) throws Exception {

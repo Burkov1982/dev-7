@@ -1,5 +1,6 @@
 package ua.goit.controller.findServlets;
 
+import ua.goit.config.HibernateDatabaseConnector;
 import ua.goit.service.HibernateSkillService;
 
 import javax.servlet.ServletException;
@@ -11,7 +12,8 @@ import java.io.IOException;
 
 @WebServlet("/skill")
 public class FindSkillServlet extends HttpServlet {
-    private final HibernateSkillService service = new HibernateSkillService();
+    private final HibernateSkillService service =
+            new HibernateSkillService(HibernateDatabaseConnector.getSessionFactory());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

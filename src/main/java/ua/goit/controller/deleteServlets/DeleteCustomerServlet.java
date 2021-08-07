@@ -1,5 +1,6 @@
 package ua.goit.controller.deleteServlets;
 
+import ua.goit.config.HibernateDatabaseConnector;
 import ua.goit.dto.CustomerDTO;
 import ua.goit.service.HibernateCustomerService;
 
@@ -14,7 +15,8 @@ import static ua.goit.service.Converter.toCustomer;
 
 @WebServlet("/deleteCustomer")
 public class DeleteCustomerServlet extends HttpServlet {
-    private final HibernateCustomerService service = new HibernateCustomerService();
+    private final HibernateCustomerService service =
+            new HibernateCustomerService(HibernateDatabaseConnector.getSessionFactory());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

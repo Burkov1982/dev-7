@@ -1,5 +1,6 @@
 package ua.goit.service;
 
+import org.hibernate.SessionFactory;
 import ua.goit.dao.HibernateProjectDAO;
 import ua.goit.dao.model.Project;
 import ua.goit.view.Util;
@@ -7,7 +8,11 @@ import ua.goit.view.Util;
 import java.util.List;
 
 public class HibernateProjectService implements HibernateService<Project> {
-    private final HibernateProjectDAO dao = new HibernateProjectDAO();
+    private final HibernateProjectDAO dao;
+
+    public HibernateProjectService(SessionFactory sessionFactory) {
+        dao = new HibernateProjectDAO(sessionFactory);
+    }
 
     @Override
     public String create(Project entity) {

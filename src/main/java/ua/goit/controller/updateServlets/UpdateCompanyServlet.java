@@ -1,5 +1,6 @@
 package ua.goit.controller.updateServlets;
 
+import ua.goit.config.HibernateDatabaseConnector;
 import ua.goit.dto.CompanyDTO;
 import ua.goit.service.HibernateCompanyService;
 
@@ -14,7 +15,8 @@ import static ua.goit.service.Converter.toCompany;
 
 @WebServlet("/updateCompany")
 public class UpdateCompanyServlet extends HttpServlet {
-    private final HibernateCompanyService hibernateCompanyService = new HibernateCompanyService();
+    private final HibernateCompanyService hibernateCompanyService =
+            new HibernateCompanyService(HibernateDatabaseConnector.getSessionFactory());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

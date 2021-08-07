@@ -1,5 +1,6 @@
 package ua.goit.controller.createServlets;
 
+import ua.goit.config.HibernateDatabaseConnector;
 import ua.goit.dto.SkillDTO;
 import ua.goit.service.HibernateSkillService;
 
@@ -14,7 +15,8 @@ import static ua.goit.service.Converter.toSkill;
 
 @WebServlet("/addSkill")
 public class AddSkillServlet extends HttpServlet {
-    private final HibernateSkillService service = new HibernateSkillService();
+    private final HibernateSkillService service =
+            new HibernateSkillService(HibernateDatabaseConnector.getSessionFactory());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

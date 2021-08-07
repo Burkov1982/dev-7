@@ -1,5 +1,6 @@
 package ua.goit.controller.findServlets;
 
+import ua.goit.config.HibernateDatabaseConnector;
 import ua.goit.service.HibernateCustomerService;
 
 import javax.servlet.ServletException;
@@ -11,7 +12,8 @@ import java.io.IOException;
 
 @WebServlet("/customer")
 public class FindCustomerServlet extends HttpServlet {
-    private final HibernateCustomerService service = new HibernateCustomerService();
+    private final HibernateCustomerService service =
+            new HibernateCustomerService(HibernateDatabaseConnector.getSessionFactory());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

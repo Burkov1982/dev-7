@@ -2,13 +2,16 @@ package ua.goit.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import ua.goit.config.HibernateDatabaseConnector;
 import ua.goit.dao.model.Company;
 
 import java.util.List;
 
 public class HibernateCompanyDAO implements HibernateDAO<Company>{
-    private final SessionFactory sessionFactory = HibernateDatabaseConnector.getSessionFactory();
+    private final SessionFactory sessionFactory;
+
+    public HibernateCompanyDAO(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public Company findById(Integer id) throws Exception{

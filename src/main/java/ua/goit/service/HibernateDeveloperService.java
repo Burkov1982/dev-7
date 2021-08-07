@@ -1,5 +1,6 @@
 package ua.goit.service;
 
+import org.hibernate.SessionFactory;
 import ua.goit.dao.HibernateDeveloperDAO;
 import ua.goit.dao.model.Developer;
 import ua.goit.view.Util;
@@ -7,7 +8,11 @@ import ua.goit.view.Util;
 import java.util.List;
 
 public class HibernateDeveloperService implements HibernateService<Developer>{
-    private final HibernateDeveloperDAO dao = new HibernateDeveloperDAO();
+    private final HibernateDeveloperDAO dao;
+
+    public HibernateDeveloperService(SessionFactory sessionFactory) {
+        dao = new HibernateDeveloperDAO(sessionFactory);
+    }
 
     @Override
     public String create(Developer entity) {

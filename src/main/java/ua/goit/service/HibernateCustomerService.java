@@ -1,5 +1,6 @@
 package ua.goit.service;
 
+import org.hibernate.SessionFactory;
 import ua.goit.dao.HibernateCustomerDAO;
 import ua.goit.dao.model.Customer;
 import ua.goit.view.Util;
@@ -7,7 +8,11 @@ import ua.goit.view.Util;
 import java.util.List;
 
 public class HibernateCustomerService implements HibernateService<Customer> {
-    private final HibernateCustomerDAO dao = new HibernateCustomerDAO();
+    private final HibernateCustomerDAO dao;
+
+    public HibernateCustomerService(SessionFactory sessionFactory) {
+        dao = new HibernateCustomerDAO(sessionFactory);
+    }
 
     @Override
     public String create(Customer entity) {

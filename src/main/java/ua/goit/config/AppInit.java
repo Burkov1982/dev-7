@@ -12,9 +12,6 @@ public class AppInit  implements ServletContextListener {
         manager.write("Init hibernate connector");
         HibernateDatabaseConnector.init();
         manager.write("Hibernate connector initialisation finished successfully!");
-        manager.write("Init database connection manager");
-        DatabaseConnectionManager.init();
-        manager.write("Database init finished");
     }
 
     @Override

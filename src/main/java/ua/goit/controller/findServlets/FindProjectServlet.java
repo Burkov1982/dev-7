@@ -1,5 +1,6 @@
 package ua.goit.controller.findServlets;
 
+import ua.goit.config.HibernateDatabaseConnector;
 import ua.goit.service.HibernateProjectService;
 
 import javax.servlet.ServletException;
@@ -11,7 +12,8 @@ import java.io.IOException;
 
 @WebServlet("/project")
 public class FindProjectServlet extends HttpServlet {
-    private final HibernateProjectService service = new HibernateProjectService();
+    private final HibernateProjectService service =
+            new HibernateProjectService(HibernateDatabaseConnector.getSessionFactory());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

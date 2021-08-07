@@ -2,13 +2,16 @@ package ua.goit.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import ua.goit.config.HibernateDatabaseConnector;
 import ua.goit.dao.model.Developer;
 
 import java.util.List;
 
 public class HibernateDeveloperDAO implements HibernateDAO<Developer>{
-    private final SessionFactory sessionFactory = HibernateDatabaseConnector.getSessionFactory();
+    private final SessionFactory sessionFactory;
+
+    public HibernateDeveloperDAO(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public Developer findById(Integer id) throws Exception {

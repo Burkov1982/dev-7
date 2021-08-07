@@ -17,10 +17,10 @@
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.PostgreSQL10Dialect</property>
 
-        <mapping resource="DeveloperDAO.hbm.xml"/>
-        <mapping resource="CompanyDAO.hbm.xml"/>
-        <mapping resource="CustomerDAO.hbm.xml"/>
-        <mapping resource="ProjectDAO.hbm.xml"/>
-        <mapping resource="SkillDAO.hbm.xml"/>
+        <mapping class="ua.goit.dao.model.Developer"/>
+        <mapping class="ua.goit.dao.model.Company"/>
+        <mapping class="ua.goit.dao.model.Customer"/>
+        <mapping class="ua.goit.dao.model.Project"/>
+        <mapping class="ua.goit.dao.model.Skill"/>
     </session-factory>
 </hibernate-configuration>

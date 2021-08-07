@@ -1,7 +1,15 @@
 package ua.goit.dao.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "customers")
 public class Customer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "customer_id")
     private Integer customer_id;
+    @Column(name = "customer_name")
     private String customer_name;
 
     public Customer() {

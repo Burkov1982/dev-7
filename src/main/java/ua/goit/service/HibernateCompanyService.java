@@ -1,5 +1,6 @@
 package ua.goit.service;
 
+import org.hibernate.SessionFactory;
 import ua.goit.dao.HibernateCompanyDAO;
 import ua.goit.dao.model.Company;
 import ua.goit.view.Util;
@@ -7,7 +8,11 @@ import ua.goit.view.Util;
 import java.util.List;
 
 public class HibernateCompanyService implements HibernateService<Company>{
-    private final HibernateCompanyDAO dao = new HibernateCompanyDAO();
+    private final HibernateCompanyDAO dao;
+
+    public HibernateCompanyService(SessionFactory sessionFactory){
+        dao = new HibernateCompanyDAO(sessionFactory);
+    }
 
     @Override
     public String findById(Integer id) {

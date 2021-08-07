@@ -1,5 +1,6 @@
 package ua.goit.controller.deleteServlets;
 
+import ua.goit.config.HibernateDatabaseConnector;
 import ua.goit.dto.ProjectDTO;
 import ua.goit.service.HibernateProjectService;
 
@@ -14,7 +15,8 @@ import static ua.goit.service.Converter.toProject;
 
 @WebServlet("/deleteProject")
 public class DeleteProjectServlet extends HttpServlet {
-    private final HibernateProjectService service = new HibernateProjectService();
+    private final HibernateProjectService service =
+            new HibernateProjectService(HibernateDatabaseConnector.getSessionFactory());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

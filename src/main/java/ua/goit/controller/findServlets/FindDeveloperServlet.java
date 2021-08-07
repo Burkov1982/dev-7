@@ -1,5 +1,6 @@
 package ua.goit.controller.findServlets;
 
+import ua.goit.config.HibernateDatabaseConnector;
 import ua.goit.service.HibernateDeveloperService;
 
 import javax.servlet.ServletException;
@@ -11,7 +12,8 @@ import java.io.IOException;
 
 @WebServlet("/developer")
 public class FindDeveloperServlet extends HttpServlet {
-    private final HibernateDeveloperService service = new HibernateDeveloperService();
+    private final HibernateDeveloperService service =
+            new HibernateDeveloperService(HibernateDatabaseConnector.getSessionFactory());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -1,10 +1,21 @@
 package ua.goit.dao.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "developers")
 public class Developer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "developer_id")
     private Integer developer_id;
+    @Column(name = "first_name")
     private String first_name;
+    @Column(name = "last_name")
     private String last_name;
+    @Column(name = "gender")
     private String gender;
+    @Column(name = "salary")
     private Integer salary;
 
     public Developer() {

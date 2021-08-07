@@ -9,11 +9,9 @@ public class HibernateDatabaseConnector {
     private static SessionFactory sessionFactory;
 
     public static synchronized void init(){
-        System.out.println("Init hibernate connection");
         MetadataSources source = new MetadataSources(new StandardServiceRegistryBuilder().configure().build());
         Metadata data = source.getMetadataBuilder().build();
         sessionFactory = data.getSessionFactoryBuilder().build();
-        System.out.println("Hibernate connection finished successfully");
     }
 
     public static synchronized void destroy() {
@@ -23,9 +21,6 @@ public class HibernateDatabaseConnector {
     }
 
     public static SessionFactory getSessionFactory() {
-        if (sessionFactory==null){
-            init();
-        }
         return sessionFactory;
     }
 }

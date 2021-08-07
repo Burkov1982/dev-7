@@ -1,5 +1,6 @@
 package ua.goit.service;
 
+import org.hibernate.SessionFactory;
 import ua.goit.dao.HibernateSkillDAO;
 import ua.goit.dao.model.Skill;
 import ua.goit.view.Util;
@@ -7,7 +8,11 @@ import ua.goit.view.Util;
 import java.util.List;
 
 public class HibernateSkillService implements HibernateService<Skill>{
-    private final HibernateSkillDAO dao = new HibernateSkillDAO();
+    private final HibernateSkillDAO dao;
+
+    public HibernateSkillService(SessionFactory sessionFactory) {
+        dao = new HibernateSkillDAO(sessionFactory);
+    }
 
     @Override
     public String create(Skill entity) {

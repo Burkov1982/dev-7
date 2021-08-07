@@ -2,13 +2,16 @@ package ua.goit.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import ua.goit.config.HibernateDatabaseConnector;
 import ua.goit.dao.model.Project;
 
 import java.util.List;
 
 public class HibernateProjectDAO implements HibernateDAO<Project> {
-    private final SessionFactory sessionFactory = HibernateDatabaseConnector.getSessionFactory();
+    private final SessionFactory sessionFactory;
+
+    public HibernateProjectDAO(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public Project findById(Integer id) throws Exception {
