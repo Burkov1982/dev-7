@@ -5,16 +5,14 @@ import java.util.Set;
 public class CustomerDTO {
     private Integer customer_id;
     private String customer_name;
-    private Set<CompanyDTO> companies;
     private Set<ProjectDTO> projects;
 
     public CustomerDTO() {
     }
 
-    public CustomerDTO(Integer customer_id, String customer_name, Set<CompanyDTO> companies, Set<ProjectDTO> projects) {
+    public CustomerDTO(Integer customer_id, String customer_name, Set<ProjectDTO> projects) {
         this.customer_id = customer_id;
         this.customer_name = customer_name;
-        this.companies = companies;
         this.projects = projects;
     }
 
@@ -24,14 +22,6 @@ public class CustomerDTO {
 
     public void setProjects(Set<ProjectDTO> projects) {
         this.projects = projects;
-    }
-
-    public Set<CompanyDTO> getCompanies() {
-        return companies;
-    }
-
-    public void setCompanies(Set<CompanyDTO> companies) {
-        this.companies = companies;
     }
 
     public Integer getCustomer_id() {

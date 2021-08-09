@@ -1,11 +1,11 @@
 package ua.goit.dao;
 
-import java.util.List;
+import java.util.Set;
 
 public interface HibernateDAO<T> {
-    T findById(Integer id) throws Exception;
+    T findById(int id) throws Exception;
     void create(T entity) throws Exception;
     void update(T entity) throws Exception;
-    void delete(T entity) throws Exception;
-    List<T> getAll() throws Exception;
+    void delete(int id) throws Exception;
+    Set<T> getAll() throws Exception;
 }

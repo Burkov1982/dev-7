@@ -21,8 +21,25 @@ public class Project {
     @Column(name = "start_date")
     private LocalDate start_date;
 
+    @ManyToMany(fetch = FetchType.EAGER, targetEntity = ua.goit.dao.model.Customer.class)
+    @JoinTable(
+            name = "project_customers",
+            joinColumns = @JoinColumn(name = "project_id"),
+            inverseJoinColumns = @JoinColumn(name = "customer_id"))
     private Set<Customer> customers;
+
+    @ManyToMany(fetch = FetchType.EAGER, targetEntity = ua.goit.dao.model.Company.class)
+    @JoinTable(
+            name = "company_projects",
+            joinColumns = @JoinColumn(name = "project_id"),
+            inverseJoinColumns = @JoinColumn(name = "company_id"))
     private Set<Company> companies;
+
+    @ManyToMany(fetch = FetchType.EAGER, targetEntity = ua.goit.dao.model.Developer.class)
+    @JoinTable(
+            name = "project_developers",
+            joinColumns = @JoinColumn(name = "project_id"),
+            inverseJoinColumns = @JoinColumn(name = "developer_id"))
     private Set<Developer> developers;
 
     public Project() {

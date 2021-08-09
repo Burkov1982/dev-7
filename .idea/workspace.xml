@@ -4,19 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ee2031a-2ec1-4830-9b05-86599171afbc" name="Changes" comment="Move to hibernate annotations">
+    <list default="true" id="1ee2031a-2ec1-4830-9b05-86599171afbc" name="Changes" comment="Add associative tables logic. Refactored dao package.">
+      <changelist_data name="Burkov1982" email="burkov_daniil@i.ua" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dao/HibernateAbstractDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/createServlets/AddLinkServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/createServlets/AddLinkServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/deleteServlets/DeleteLinkServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/deleteServlets/DeleteLinkServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/getAllServlets/LinksCustomersServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/getAllServlets/LinksCustomersServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/getAllServlets/LinksDeveloperServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/getAllServlets/LinksDeveloperServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/getAllServlets/LinksProjectServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/getAllServlets/LinksProjectServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/updateServlets/UpdateLinkServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/updateServlets/UpdateLinkServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/AbstractDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/CustomerDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/DataAccessObject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/DeveloperDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/HibernateCompanyDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dao/HibernateCompanyDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/HibernateCustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dao/HibernateCustomerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/HibernateDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dao/HibernateDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/HibernateDeveloperDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dao/HibernateDeveloperDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/HibernateProjectDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dao/HibernateProjectDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/HibernateSkillDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dao/HibernateSkillDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/LinksDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/ProjectDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/SkillDAO.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/model/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dao/model/Company.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dao/model/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/model/Developer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dao/model/Developer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/model/Link.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dao/model/Project.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/model/Skill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dao/model/Skill.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dto/CompanyDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dto/CompanyDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dto/CustomerDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dto/CustomerDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dto/DeveloperDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dto/DeveloperDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dto/ProjectDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dto/ProjectDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dto/SkillDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dto/SkillDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dto/LinkDTO.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/service/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/service/Converter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/service/LinkService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/service/Service.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/view/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/view/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/initDB.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/initDB.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +109,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../java-dev-7" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -161,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628340380489</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Getting ready to add associative tables logic">
+      <created>1628499490957</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1628499490958</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -193,7 +227,9 @@
     <MESSAGE value="New versions of the service and dao packages were created" />
     <MESSAGE value="Service and servlets packages were moved to hibernate" />
     <MESSAGE value="Move to hibernate annotations" />
-    <option name="LAST_COMMIT_MESSAGE" value="Move to hibernate annotations" />
+    <MESSAGE value="Getting ready to add associative tables logic" />
+    <MESSAGE value="Add associative tables logic. Refactored dao package." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add associative tables logic. Refactored dao package." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

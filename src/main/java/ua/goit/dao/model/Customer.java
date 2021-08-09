@@ -14,25 +14,20 @@ public class Customer {
     @Column(name = "customer_name")
     private String customer_name;
 
-    private Set<Company> companies;
+    @ManyToMany(fetch = FetchType.EAGER, targetEntity = ua.goit.dao.model.Project.class)
+    @JoinTable(
+            name = "customer_projects",
+            joinColumns = @JoinColumn(name = "customer_id"),
+            inverseJoinColumns = @JoinColumn(name = "project_id"))
     private Set<Project> projects;
 
     public Customer() {
     }
 
-    public Customer(Integer customer_id, String customer_name, Set<Company> companies, Set<Project> projects) {
+    public Customer(Integer customer_id, String customer_name, Set<Project> projects) {
         this.customer_id = customer_id;
         this.customer_name = customer_name;
-        this.companies = companies;
         this.projects = projects;
-    }
-
-    public Set<Company> getCompanies() {
-        return companies;
-    }
-
-    public void setCompanies(Set<Company> companies) {
-        this.companies = companies;
     }
 
     public Set<Project> getProjects() {

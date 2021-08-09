@@ -15,6 +15,11 @@ public class Skill {
     @Column(name = "stage")
     private String stage;
 
+    @ManyToMany(fetch = FetchType.EAGER, targetEntity = ua.goit.dao.model.Developer.class)
+    @JoinTable(
+            name = "developer_skills",
+            joinColumns = @JoinColumn(name = "skill_id"),
+            inverseJoinColumns = @JoinColumn(name = "developer_id"))
     private Set<Developer> developers;
 
     public Skill() {
