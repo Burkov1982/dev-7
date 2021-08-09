@@ -1,6 +1,7 @@
 package ua.goit.dao.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name= "skills")
@@ -14,13 +15,24 @@ public class Skill {
     @Column(name = "stage")
     private String stage;
 
-    public Skill(Integer skill_id, String branch, String stage) {
+    private Set<Developer> developers;
+
+    public Skill() {
+    }
+
+    public Skill(Integer skill_id, String branch, String stage, Set<Developer> developers) {
         this.skill_id = skill_id;
         this.branch = branch;
         this.stage = stage;
+        this.developers = developers;
     }
 
-    public Skill() {
+    public Set<Developer> getDevelopers() {
+        return developers;
+    }
+
+    public void setDevelopers(Set<Developer> developers) {
+        this.developers = developers;
     }
 
     public Integer getSkill_id() {

@@ -1,6 +1,8 @@
 package ua.goit.dao.model;
 
 import javax.persistence.*;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "companies")
@@ -14,13 +16,18 @@ public class Company{
     @Column(name = "headquarters")
     private String headquarters;
 
+    private Set<Customer> customers;
+    private Set<Project> projects;
+
     public Company() {
     }
 
-    public Company(Integer company_id, String company_name, String headquarters) {
+    public Company(Integer company_id, String company_name, String headquarters, Set<Customer> customers, Set<Project> projects) {
         this.company_id = company_id;
         this.company_name = company_name;
         this.headquarters = headquarters;
+        this.customers = customers;
+        this.projects = projects;
     }
 
     public Integer getCompany_id() {
@@ -46,6 +53,36 @@ public class Company{
 
     public void setHeadquarters(String headquarters) {
         this.headquarters = headquarters;
+    }
+
+
+    public Set<Customer> getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(Set<Customer> customers) {
+        this.customers = customers;
+    }
+
+    public Set<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(Set<Project> projects) {
+        this.projects = projects;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Company company = (Company) o;
+        return company_id.equals(company.company_id) && company_name.equals(company.company_name) && headquarters.equals(company.headquarters);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(company_id, company_name, headquarters);
     }
 
     @Override

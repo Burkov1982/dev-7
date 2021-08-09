@@ -1,6 +1,8 @@
 package ua.goit.dao.model;
 
 import javax.persistence.*;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "customers")
@@ -12,12 +14,33 @@ public class Customer {
     @Column(name = "customer_name")
     private String customer_name;
 
+    private Set<Company> companies;
+    private Set<Project> projects;
+
     public Customer() {
     }
 
-    public Customer(Integer customer_id, String customer_name) {
+    public Customer(Integer customer_id, String customer_name, Set<Company> companies, Set<Project> projects) {
         this.customer_id = customer_id;
         this.customer_name = customer_name;
+        this.companies = companies;
+        this.projects = projects;
+    }
+
+    public Set<Company> getCompanies() {
+        return companies;
+    }
+
+    public void setCompanies(Set<Company> companies) {
+        this.companies = companies;
+    }
+
+    public Set<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(Set<Project> projects) {
+        this.projects = projects;
     }
 
     public Integer getCustomer_id() {
@@ -34,6 +57,19 @@ public class Customer {
 
     public void setCustomer_name(String customer_name) {
         this.customer_name = customer_name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return customer_id.equals(customer.customer_id) && customer_name.equals(customer.customer_name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(customer_id, customer_name);
     }
 
     @Override

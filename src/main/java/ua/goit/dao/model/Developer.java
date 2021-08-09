@@ -1,6 +1,8 @@
 package ua.goit.dao.model;
 
 import javax.persistence.*;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "developers")
@@ -18,15 +20,37 @@ public class Developer {
     @Column(name = "salary")
     private Integer salary;
 
+    private Set<Project> projects;
+    private Set<Skill> skills;
+
     public Developer() {
     }
 
-    public Developer(Integer developer_id, String first_name, String last_name, String gender, Integer salary) {
+    public Developer(Integer developer_id, String first_name, String last_name, String gender, Integer salary,
+                     Set<Project> projects, Set<Skill> skills) {
         this.developer_id = developer_id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.gender = gender;
         this.salary = salary;
+        this.projects = projects;
+        this.skills = skills;
+    }
+
+    public Set<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(Set<Project> projects) {
+        this.projects = projects;
+    }
+
+    public Set<Skill> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(Set<Skill> skills) {
+        this.skills = skills;
     }
 
     public Integer getDeveloper_id() {
@@ -67,6 +91,19 @@ public class Developer {
 
     public void setSalary(Integer salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Developer developer = (Developer) o;
+        return developer_id.equals(developer.developer_id) && first_name.equals(developer.first_name) && last_name.equals(developer.last_name) && gender.equals(developer.gender) && salary.equals(developer.salary);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(developer_id, first_name, last_name, gender, salary);
     }
 
     @Override

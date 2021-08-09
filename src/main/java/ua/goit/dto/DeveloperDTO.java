@@ -1,5 +1,7 @@
 package ua.goit.dto;
 
+import java.util.Set;
+
 public class DeveloperDTO {
     private Integer developer_id;
     private String first_name;
@@ -7,15 +9,37 @@ public class DeveloperDTO {
     private String gender;
     private Integer salary;
 
+    private Set<ProjectDTO> projects;
+    private Set<SkillDTO> skills;
+
     public DeveloperDTO() {
     }
 
-    public DeveloperDTO(Integer developer_id, String first_name, String last_name, String gender, Integer salary) {
+    public DeveloperDTO(Integer developer_id, String first_name, String last_name, String gender, Integer salary,
+                        Set<ProjectDTO> projects, Set<SkillDTO> skills) {
         this.developer_id = developer_id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.gender = gender;
         this.salary = salary;
+        this.projects = projects;
+        this.skills = skills;
+    }
+
+    public Set<ProjectDTO> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(Set<ProjectDTO> projects) {
+        this.projects = projects;
+    }
+
+    public Set<SkillDTO> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(Set<SkillDTO> skills) {
+        this.skills = skills;
     }
 
     public Integer getDeveloper_id() {

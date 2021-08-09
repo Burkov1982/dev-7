@@ -2,6 +2,8 @@ package ua.goit.dao.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "projects")
@@ -19,15 +21,47 @@ public class Project {
     @Column(name = "start_date")
     private LocalDate start_date;
 
+    private Set<Customer> customers;
+    private Set<Company> companies;
+    private Set<Developer> developers;
+
     public Project() {
     }
 
-    public Project(Integer project_id, String project_name, String project_description, Integer cost, LocalDate start_date) {
+    public Project(Integer project_id, String project_name, String project_description, Integer cost,
+                   LocalDate start_date, Set<Customer> customers, Set<Company> companies, Set<Developer> developers) {
         this.project_id = project_id;
         this.project_name = project_name;
         this.project_description = project_description;
         this.cost = cost;
         this.start_date = start_date;
+        this.customers = customers;
+        this.companies = companies;
+        this.developers = developers;
+    }
+
+    public Set<Developer> getDevelopers() {
+        return developers;
+    }
+
+    public void setDevelopers(Set<Developer> developers) {
+        this.developers = developers;
+    }
+
+    public Set<Customer> getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(Set<Customer> customers) {
+        this.customers = customers;
+    }
+
+    public Set<Company> getCompanies() {
+        return companies;
+    }
+
+    public void setCompanies(Set<Company> companies) {
+        this.companies = companies;
     }
 
     public Integer getProject_id() {
@@ -68,6 +102,19 @@ public class Project {
 
     public void setStart_date(LocalDate start_date) {
         this.start_date = start_date;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Project project = (Project) o;
+        return project_id.equals(project.project_id) && project_name.equals(project.project_name) && project_description.equals(project.project_description) && cost.equals(project.cost) && start_date.equals(project.start_date);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(project_id, project_name, project_description, cost, start_date);
     }
 
     @Override

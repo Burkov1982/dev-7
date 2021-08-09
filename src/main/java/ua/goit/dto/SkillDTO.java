@@ -1,17 +1,29 @@
 package ua.goit.dto;
 
+import java.util.Set;
+
 public class SkillDTO {
     private Integer skill_id;
     private String branch;
     private String stage;
+    private Set<DeveloperDTO> developers;
 
-    public SkillDTO(Integer skill_id, String branch, String stage) {
+    public SkillDTO() {
+    }
+
+    public SkillDTO(Integer skill_id, String branch, String stage, Set<DeveloperDTO> developers) {
         this.skill_id = skill_id;
         this.branch = branch;
         this.stage = stage;
+        this.developers = developers;
     }
 
-    public SkillDTO() {
+    public Set<DeveloperDTO> getDevelopers() {
+        return developers;
+    }
+
+    public void setDevelopers(Set<DeveloperDTO> developers) {
+        this.developers = developers;
     }
 
     public Integer getSkill_id() {
