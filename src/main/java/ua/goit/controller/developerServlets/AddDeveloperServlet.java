@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static ua.goit.service.Converter.toDeveloper;
+import static ua.goit.service.converters.DeveloperConverter.toDeveloper;
 
 @WebServlet("/addDeveloper")
 public class AddDeveloperServlet extends HttpServlet {

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static ua.goit.service.Converter.toCompany;
+import static ua.goit.service.converters.CompanyConverter.toCompany;
 
 @WebServlet("/updateCompany")
 public class UpdateCompanyServlet extends HttpServlet {

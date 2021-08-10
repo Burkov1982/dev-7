@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDate;
 
-import static ua.goit.service.Converter.toProject;
+import static ua.goit.service.converters.ProjectConverter.toProject;
 
 @WebServlet("/addProject")
 public class AddProjectServlet extends HttpServlet {

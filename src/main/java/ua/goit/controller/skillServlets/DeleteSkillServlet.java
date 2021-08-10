@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static ua.goit.service.Converter.toSkill;
+import static ua.goit.service.converters.SkillConverter.toSkill;
 
 @WebServlet("/deleteSkill")
 public class DeleteSkillServlet extends HttpServlet {

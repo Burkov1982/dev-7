@@ -4,144 +4,51 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ee2031a-2ec1-4830-9b05-86599171afbc" name="Changes" comment="Add associative tables logic. Refactored dao package.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/developerSkillsServlets/AddDeveloperSkillsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/developerSkillsServlets/DeleteDeveloperSkillsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/developerSkillsServlets/DeveloperSkillsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/developerSkillsServlets/UpdateDeveloperSkillsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/projectDevelopersServlets/AddProjectDevelopersServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/projectDevelopersServlets/DeleteProjectDevelopersServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/projectDevelopersServlets/ProjectDevelopersServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/projectDevelopersServlets/UpdateProjectDevelopersServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/сompanyProjectsServlets/AddCompanyProjectsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/сompanyProjectsServlets/CompanyProjectsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/сompanyProjectsServlets/DeleteCompanyProjectsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/сompanyProjectsServlets/UpdateCompanyProjectsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/сustomerProjectsServlets/AddCustomerProjectsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/сustomerProjectsServlets/CustomerProjectsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/сustomerProjectsServlets/DeleteCustomerProjectsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/сustomerProjectsServlets/UpdateCustomerProjectsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/view/create/addDeveloperSkillsFrom.jsp" afterDir="false" />
+    <list default="true" id="1ee2031a-2ec1-4830-9b05-86599171afbc" name="Changes" comment="Some updates. Refactored controller package structure.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ua/goit/service/converters/CompanyConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ua/goit/service/converters/CustomerConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ua/goit/service/converters/DeveloperConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ua/goit/service/converters/ProjectConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ua/goit/service/converters/SkillConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/config/DatabaseConnectionManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/createServlets/AddCompanyServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/companyServlets/AddCompanyServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/createServlets/AddCustomerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/customerServlets/AddCustomerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/createServlets/AddDeveloperServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/developerServlets/AddDeveloperServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/createServlets/AddLinkServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/createServlets/AddProjectServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/projectServlets/AddProjectServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/createServlets/AddSkillServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/skillServlets/AddSkillServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/deleteServlets/DeleteCompanyServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/companyServlets/DeleteCompanyServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/deleteServlets/DeleteCustomerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/customerServlets/DeleteCustomerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/deleteServlets/DeleteDeveloperServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/developerServlets/DeleteDeveloperServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/deleteServlets/DeleteLinkServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/deleteServlets/DeleteProjectServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/projectServlets/DeleteProjectServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/deleteServlets/DeleteSkillServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/skillServlets/DeleteSkillServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/findServlets/FindCompanyServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/companyServlets/FindCompanyServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/findServlets/FindCustomerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/customerServlets/FindCustomerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/findServlets/FindDeveloperServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/developerServlets/FindDeveloperServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/findServlets/FindProjectServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/projectServlets/FindProjectServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/findServlets/FindSkillServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/skillServlets/FindSkillServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/getAllServlets/CompaniesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/companyServlets/CompaniesServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/getAllServlets/CustomersServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/customerServlets/CustomersServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/getAllServlets/DevelopersServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/developerServlets/DevelopersServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/getAllServlets/LinksCustomersServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/getAllServlets/LinksDeveloperServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/getAllServlets/LinksProjectServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/getAllServlets/ProjectsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/projectServlets/ProjectsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/getAllServlets/SkillsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/skillServlets/SkillsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/updateServlets/UpdateCompanyServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/companyServlets/UpdateCompanyServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/updateServlets/UpdateCustomerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/customerServlets/UpdateCustomerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/updateServlets/UpdateDeveloperServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/developerServlets/UpdateDeveloperServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/updateServlets/UpdateLinkServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/updateServlets/UpdateProjectServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/projectServlets/UpdateProjectServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/updateServlets/UpdateSkillServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/skillServlets/UpdateSkillServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/HibernateAbstractDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dao/HibernateAbstractDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/HibernateDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dao/HibernateDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/LinksDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/model/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dao/model/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dao/model/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/model/Developer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dao/model/Developer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/model/Link.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dao/model/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dao/model/Skill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dao/model/Skill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dto/LinkDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/service/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/service/Converter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/service/HibernateCompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/service/HibernateCompanyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/service/HibernateCustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/service/HibernateCustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/service/HibernateDeveloperService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/service/HibernateDeveloperService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/service/HibernateProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/service/HibernateProjectService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/service/HibernateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/service/HibernateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/service/HibernateSkillService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/service/HibernateSkillService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/service/LinkService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/service/PropertiesLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/companyServlets/AddCompanyServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/companyServlets/AddCompanyServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/companyServlets/DeleteCompanyServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/companyServlets/DeleteCompanyServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/companyServlets/UpdateCompanyServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/companyServlets/UpdateCompanyServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/customerServlets/AddCustomerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/customerServlets/AddCustomerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/customerServlets/DeleteCustomerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/customerServlets/DeleteCustomerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/customerServlets/UpdateCustomerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/customerServlets/UpdateCustomerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/developerServlets/AddDeveloperServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/developerServlets/AddDeveloperServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/developerServlets/DeleteDeveloperServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/developerServlets/DeleteDeveloperServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/developerServlets/DevelopersServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/developerServlets/DevelopersServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/developerServlets/UpdateDeveloperServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/developerServlets/UpdateDeveloperServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/developerSkillsServlets/AddDeveloperSkillsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/developerSkillsServlets/AddDeveloperSkillsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/developerSkillsServlets/DeleteDeveloperSkillsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/developerSkillsServlets/DeleteDeveloperSkillsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/developerSkillsServlets/DeveloperSkillsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/developerSkillsServlets/DeveloperSkillsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/developerSkillsServlets/UpdateDeveloperSkillsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/developerSkillsServlets/UpdateDeveloperSkillsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/projectServlets/AddProjectServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/projectServlets/AddProjectServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/projectServlets/DeleteProjectServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/projectServlets/DeleteProjectServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/projectServlets/UpdateProjectServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/projectServlets/UpdateProjectServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/skillServlets/AddSkillServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/skillServlets/AddSkillServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/skillServlets/DeleteSkillServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/skillServlets/DeleteSkillServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/skillServlets/UpdateSkillServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/skillServlets/UpdateSkillServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/service/Converter.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/view/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/view/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/initDB.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/initDB.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/config/HibernateDatabaseConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/config/HibernateDatabaseConnector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/createServlets/AddCompanyServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/createServlets/AddCustomerServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/createServlets/AddDeveloperServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/createServlets/AddLinkServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/createServlets/AddProjectServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/createServlets/AddSkillServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/deleteServlets/DeleteCompanyServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/deleteServlets/DeleteCustomerServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/deleteServlets/DeleteDeveloperServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/deleteServlets/DeleteLinkServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/deleteServlets/DeleteProjectServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/deleteServlets/DeleteSkillServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/findServlets/FindCompanyServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/findServlets/FindCustomerServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/findServlets/FindDeveloperServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/findServlets/FindProjectServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/findServlets/FindSkillServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/getAllServlets/CompaniesServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/getAllServlets/CustomersServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/getAllServlets/DevelopersServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/getAllServlets/LinksCustomersServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/getAllServlets/LinksDeveloperServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/getAllServlets/LinksProjectServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/getAllServlets/ProjectsServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/getAllServlets/SkillsServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/updateServlets/UpdateCompanyServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/updateServlets/UpdateCustomerServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/updateServlets/UpdateDeveloperServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/updateServlets/UpdateLinkServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/updateServlets/UpdateProjectServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/controller/updateServlets/UpdateSkillServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dao/AbstractDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dao/CustomerDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dao/DataAccessObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dao/DeveloperDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dao/HibernateCompanyDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dao/HibernateCompanyDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dao/HibernateCustomerDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dao/HibernateCustomerDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/create/addDeveloperSkillsFrom.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/create/links/addDeveloperSkillsFrom.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/create/addLink.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/config/DatabaseConnectionManager.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dao/HibernateDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dao/HibernateDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dao/HibernateDeveloperDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dao/HibernateDeveloperDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dao/HibernateProjectDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dao/HibernateProjectDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dao/HibernateSkillDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dao/HibernateSkillDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dao/LinksDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dao/ProjectDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dao/SkillDAO.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dao/model/Company.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dao/model/Company.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dao/model/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dao/model/Customer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dao/model/Developer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dao/model/Developer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dao/model/Link.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dao/model/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dao/model/Project.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dao/model/Skill.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dao/model/Skill.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dto/CompanyDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dto/CompanyDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dto/CustomerDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dto/CustomerDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dto/DeveloperDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dto/DeveloperDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dto/LinkDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dto/ProjectDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dto/ProjectDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dto/SkillDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dto/SkillDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/service/Converter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/service/Converter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/service/HibernateCompanyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/service/HibernateCompanyService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/service/HibernateCustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/service/HibernateCustomerService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/service/HibernateDeveloperService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/service/HibernateDeveloperService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/service/HibernateProjectService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/service/HibernateProjectService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/service/HibernateService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/service/HibernateService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/service/HibernateSkillService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/service/HibernateSkillService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/service/LinkService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/service/Service.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/view/Util.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/view/Util.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/service/PropertiesLoader.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +116,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/PMS-Hibernate-master" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/java-dev-2" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -221,7 +128,11 @@
       <recent name="C:\Users\Я\IdeaProjects\hibernate-homework" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Я\IdeaProjects\hibernate-homework\src\main\webapp\view\create\links" />
       <recent name="C:\Users\Я\IdeaProjects\hibernate-homework" />
+    </key>
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="ua.goit.service.DeveloperConverter" />
     </key>
   </component>
   <component name="RunManager">
@@ -304,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628512539101</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Some updates. Refactored controller package structure.">
+      <created>1628588707658</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1628588707658</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -338,7 +256,8 @@
     <MESSAGE value="Move to hibernate annotations" />
     <MESSAGE value="Getting ready to add associative tables logic" />
     <MESSAGE value="Add associative tables logic. Refactored dao package." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add associative tables logic. Refactored dao package." />
+    <MESSAGE value="Some updates. Refactored controller package structure." />
+    <option name="LAST_COMMIT_MESSAGE" value="Some updates. Refactored controller package structure." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

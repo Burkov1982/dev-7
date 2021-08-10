@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static ua.goit.service.Converter.toCustomer;
+import static ua.goit.service.converters.CustomerConverter.toCustomer;
 
 @WebServlet("/deleteCustomer")
 public class DeleteCustomerServlet extends HttpServlet {

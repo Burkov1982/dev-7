@@ -44,17 +44,9 @@ input[type=submit]:hover {
 
 	<div class="w3-container">
 
-      <form action="/addLink" method="POST">
-        <select id="table" name="table">
-            <option value="customers_companies">Customers-Companies</option>
-            <option value="project_developers">Project-Developers</option>
-            <option value="developer_skills">Developer-Skills</option>
-        </select>
-        <input type="number" id="projectId" name="projectId" placeholder="Enter project ID">
-        <input type="number" id="customerId" name="customerId" placeholder="Enter customer ID">
-        <input type="number" id="developerId" name="developerId" placeholder="Enter developer ID">
-        <input type="number" id="companyId" name="companyId" placeholder="Enter company ID">
-        <input type="number" id="skillId" name="skillId" placeholder="Enter skill ID">
+      <form action="/addDeveloperSkills" method="POST">
+        <input type="number" id="developer_id" name="developer_id" placeholder="Enter developer id">
+        <input type="number" id="skill_id" name="skill_id" placeholder="Enter skill id">
         <input type="submit" value="Submit">
       </form>
 	</div>
