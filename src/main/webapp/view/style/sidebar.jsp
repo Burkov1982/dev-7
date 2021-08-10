@@ -5,7 +5,10 @@
     <button class="w3-button">Create <i class="fa fa-caret-down"></i></button>
     <div class="w3-dropdown-content w3-bar-block">
       <a href="/addDeveloper" class="w3-bar-item w3-button">Developer</a>
-      <a href="/addLink" class="w3-bar-item w3-button">Link</a>
+      <a href="/addDeveloperSkills" class="w3-bar-item w3-button">Developer-Skills Associative</a>
+      <a href="/addProjectDevelopers" class="w3-bar-item w3-button">Project-Developers Associative</a>
+      <a href="/addCompanyProjects" class="w3-bar-item w3-button">Company-Projects Associative</a>
+      <a href="/addCustomerProjects" class="w3-bar-item w3-button">Customer-Projects Associative</a>
       <a href="/addProject" class="w3-bar-item w3-button">Project</a>
       <a href="/addCustomer" class="w3-bar-item w3-button">Customer</a>
       <a href="/addCompany" class="w3-bar-item w3-button">Company</a>
