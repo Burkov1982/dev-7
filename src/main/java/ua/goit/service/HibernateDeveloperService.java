@@ -3,9 +3,8 @@ package ua.goit.service;
 import org.hibernate.SessionFactory;
 import ua.goit.dao.HibernateDeveloperDAO;
 import ua.goit.dao.model.Developer;
-import ua.goit.view.Util;
 
-import java.util.List;
+import java.util.Set;
 
 public class HibernateDeveloperService implements HibernateService<Developer>{
     private final HibernateDeveloperDAO dao;
@@ -15,20 +14,24 @@ public class HibernateDeveloperService implements HibernateService<Developer>{
     }
 
     @Override
-    public String create(Developer entity) {
+    public Developer create(Developer entity) {
         try {
-            dao.create(entity);
-            return "Your request has been processed successfully";
+            Integer identifier = dao.create(entity);
+            if (identifier!=null){
+                return dao.findById(identifier);
+            } else {
+                throw new RuntimeException();
+            }
         } catch (Exception e) {
             e.printStackTrace();
-            return "An error has occurred, please resend the request";
+            throw new RuntimeException();
         }
     }
 
     @Override
     public String delete(Developer entity) {
         try {
-            dao.delete(entity);
+            dao.delete(entity.getDeveloper_id());
             return "Your request has been processed successfully";
         } catch (Exception e) {
             e.printStackTrace();
@@ -37,34 +40,33 @@ public class HibernateDeveloperService implements HibernateService<Developer>{
     }
 
     @Override
-    public String update(Developer entity) {
+    public Developer update(Developer entity) {
         try {
             dao.update(entity);
-            return dao.findById(entity.getDeveloper_id()).toString();
+            return dao.findById(entity.getDeveloper_id());
         } catch (Exception e) {
             e.printStackTrace();
-            return "An error has occurred, please resend the request";
+            throw new RuntimeException();
         }
     }
 
     @Override
-    public String findById(Integer id) {
+    public Developer findById(Integer id) {
         try {
-            return dao.findById(id).toString();
+            return dao.findById(id);
         } catch (Exception e) {
             e.printStackTrace();
-            return "An error has occurred, please resend the request";
+            throw new RuntimeException();
         }
     }
 
     @Override
-    public String getAll() {
+    public Set<Developer> getAll() {
         try {
-            List<Developer> developers = dao.getAll();
-            return Util.joinListElements(developers);
+            return dao.getAll();
         } catch (Exception e){
             e.printStackTrace();
-            return "An error has occurred, please resend the request";
+            throw new RuntimeException();
         }
     }
 }

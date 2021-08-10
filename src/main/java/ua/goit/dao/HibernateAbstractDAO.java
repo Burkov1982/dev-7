@@ -16,25 +16,27 @@ public abstract class HibernateAbstractDAO<T> implements HibernateDAO<T> {
     private final SessionFactory sessionFactory;
     private final Class<T> entityClass;
 
-
     protected HibernateAbstractDAO(SessionFactory sessionFactory, Class<T> entityClass) {
         this.sessionFactory = sessionFactory;
         this.entityClass = entityClass;
     }
 
     @Override
-    public void create(T entity) throws Exception{
+    public Integer create(T entity) throws Exception{
         Transaction transaction = null;
+        Integer id = null;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
-            session.save(entity);
+            id = (Integer) session.save(entity);
             transaction.commit();
+            return id;
         } catch (Exception ex) {
             LOG.error("create. ", ex);
             if (Objects.nonNull(transaction)) {
                 transaction.rollback();
             }
         }
+        return id;
     }
 
     @Override

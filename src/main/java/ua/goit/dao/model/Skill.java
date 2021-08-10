@@ -36,7 +36,7 @@ public class Skill {
         return developers;
     }
 
-    public void setDevelopers(Set<Developer> developers) {
+    public synchronized void setDevelopers(Set<Developer> developers) {
         this.developers = developers;
     }
 

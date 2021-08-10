@@ -3,9 +3,8 @@ package ua.goit.service;
 import org.hibernate.SessionFactory;
 import ua.goit.dao.HibernateCompanyDAO;
 import ua.goit.dao.model.Company;
-import ua.goit.view.Util;
 
-import java.util.List;
+import java.util.Set;
 
 public class HibernateCompanyService implements HibernateService<Company>{
     private final HibernateCompanyDAO dao;
@@ -15,41 +14,45 @@ public class HibernateCompanyService implements HibernateService<Company>{
     }
 
     @Override
-    public String findById(Integer id) {
+    public Company findById(Integer id) {
         try {
-            return dao.findById(id).toString();
+            return dao.findById(id);
         } catch (Exception e) {
             e.printStackTrace();
-            return "An error has occurred, please resend the request";
+            throw new RuntimeException();
         }
     }
 
     @Override
-    public String create(Company company) {
+    public Company create(Company company) {
         try {
-            dao.create(company);
-            return "Your request has been processed successfully";
+            Integer identifier = dao.create(company);
+            if (identifier!=null) {
+                return dao.findById(identifier);
+            } else {
+                throw new RuntimeException();
+            }
         } catch (Exception e) {
             e.printStackTrace();
-            return "An error has occurred, please resend the request";
+            throw new RuntimeException();
         }
     }
 
     @Override
-    public String update(Company company) {
+    public Company update(Company company) {
         try {
             dao.update(company);
-            return dao.findById(company.getCompany_id()).toString();
+            return dao.findById(company.getCompany_id());
         } catch (Exception e) {
             e.printStackTrace();
-            return "An error has occurred, please resend the request";
+            throw new RuntimeException();
         }
     }
 
     @Override
     public String delete(Company company){
         try {
-            dao.delete(company);
+            dao.delete(company.getCompany_id());
             return "Your request has been processed successfully";
         } catch (Exception e) {
             e.printStackTrace();
@@ -58,13 +61,12 @@ public class HibernateCompanyService implements HibernateService<Company>{
     }
 
     @Override
-    public String getAll() {
+    public Set<Company> getAll() {
         try {
-            List<Company> companies = dao.getAll();
-            return Util.joinListElements(companies);
+            return dao.getAll();
         } catch (Exception e){
             e.printStackTrace();
-            return "An error has occurred, please resend the request";
+            throw new RuntimeException();
         }
     }
 }

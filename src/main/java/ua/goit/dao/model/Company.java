@@ -62,7 +62,7 @@ public class Company{
         return projects;
     }
 
-    public void setProjects(Set<Project> projects) {
+    public synchronized void setProjects(Set<Project> projects) {
         this.projects = projects;
     }
 

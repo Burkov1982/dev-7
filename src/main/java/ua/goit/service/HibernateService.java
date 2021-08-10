@@ -1,9 +1,11 @@
 package ua.goit.service;
 
+import java.util.Set;
+
 public interface HibernateService<T> {
-    String create(T entity);
+    T create(T entity);
     String delete(T entity);
-    String update(T entity);
-    String findById(Integer id);
-    String getAll();
+    T update(T entity);
+    T findById(Integer id);
+    Set<T> getAll();
 }

@@ -3,9 +3,8 @@ package ua.goit.service;
 import org.hibernate.SessionFactory;
 import ua.goit.dao.HibernateCustomerDAO;
 import ua.goit.dao.model.Customer;
-import ua.goit.view.Util;
 
-import java.util.List;
+import java.util.Set;
 
 public class HibernateCustomerService implements HibernateService<Customer> {
     private final HibernateCustomerDAO dao;
@@ -15,20 +14,24 @@ public class HibernateCustomerService implements HibernateService<Customer> {
     }
 
     @Override
-    public String create(Customer entity) {
+    public Customer create(Customer entity) {
         try {
-            dao.create(entity);
-            return "Your request has been processed successfully";
+            Integer identifier = dao.create(entity);
+            if (identifier!=null){
+                return dao.findById(identifier);
+            } else {
+                throw new RuntimeException();
+            }
         } catch (Exception e) {
             e.printStackTrace();
-            return "An error has occurred, please resend the request";
+            throw new RuntimeException();
         }
     }
 
     @Override
     public String delete(Customer entity) {
         try {
-            dao.delete(entity);
+            dao.delete(entity.getCustomer_id());
             return "Your request has been processed successfully";
         } catch (Exception e) {
             e.printStackTrace();
@@ -37,34 +40,33 @@ public class HibernateCustomerService implements HibernateService<Customer> {
     }
 
     @Override
-    public String update(Customer entity) {
+    public Customer update(Customer entity) {
         try {
             dao.update(entity);
-            return dao.findById(entity.getCustomer_id()).toString();
+            return dao.findById(entity.getCustomer_id());
         } catch (Exception e) {
             e.printStackTrace();
-            return "An error has occurred, please resend the request";
+            throw new RuntimeException();
         }
     }
 
     @Override
-    public String findById(Integer id) {
+    public Customer findById(Integer id) {
         try {
-            return dao.findById(id).toString();
+            return dao.findById(id);
         } catch (Exception e) {
             e.printStackTrace();
-            return "An error has occurred, please resend the request";
+            throw new RuntimeException();
         }
     }
 
     @Override
-    public String getAll() {
+    public Set<Customer> getAll() {
         try {
-            List<Customer> customers = dao.getAll();
-            return Util.joinListElements(customers);
+            return dao.getAll();
         } catch (Exception e){
             e.printStackTrace();
-            return "An error has occurred, please resend the request";
+            throw new RuntimeException();
         }
     }
 }

@@ -3,9 +3,8 @@ package ua.goit.service;
 import org.hibernate.SessionFactory;
 import ua.goit.dao.HibernateProjectDAO;
 import ua.goit.dao.model.Project;
-import ua.goit.view.Util;
 
-import java.util.List;
+import java.util.Set;
 
 public class HibernateProjectService implements HibernateService<Project> {
     private final HibernateProjectDAO dao;
@@ -15,20 +14,24 @@ public class HibernateProjectService implements HibernateService<Project> {
     }
 
     @Override
-    public String create(Project entity) {
+    public Project create(Project entity) {
         try {
-            dao.create(entity);
-            return "Your request has been processed successfully";
+            Integer identifier = dao.create(entity);
+            if (identifier!=null){
+                return dao.findById(identifier);
+            } else {
+                throw new RuntimeException();
+            }
         } catch (Exception e) {
             e.printStackTrace();
-            return "An error has occurred, please resend the request";
+            throw new RuntimeException();
         }
     }
 
     @Override
     public String delete(Project entity) {
         try {
-            dao.delete(entity);
+            dao.delete(entity.getProject_id());
             return "Your request has been processed successfully";
         } catch (Exception e) {
             e.printStackTrace();
@@ -37,34 +40,34 @@ public class HibernateProjectService implements HibernateService<Project> {
     }
 
     @Override
-    public String update(Project entity) {
+    public Project update(Project entity) {
         try {
             dao.update(entity);
-            return dao.findById(entity.getProject_id()).toString();
+            return dao.findById(entity.getProject_id());
         } catch (Exception e) {
             e.printStackTrace();
-            return "An error has occurred, please resend the request";
+            throw new RuntimeException();
         }
     }
 
     @Override
-    public String findById(Integer id) {
+    public Project findById(Integer id) {
         try {
-            return dao.findById(id).toString();
+            return dao.findById(id);
         } catch (Exception e) {
             e.printStackTrace();
-            return "An error has occurred, please resend the request";
+            throw new RuntimeException();
         }
     }
 
     @Override
-    public String getAll() {
+    public Set<Project> getAll() {
         try {
-            List<Project> projects = dao.getAll();
-            return Util.joinListElements(projects);
+            Set<Project> projects = dao.getAll();
+            return dao.getAll();
         } catch (Exception e){
             e.printStackTrace();
-            return "An error has occurred, please resend the request";
+            throw new RuntimeException();
         }
     }
 }

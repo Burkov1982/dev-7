@@ -3,9 +3,8 @@ package ua.goit.service;
 import org.hibernate.SessionFactory;
 import ua.goit.dao.HibernateSkillDAO;
 import ua.goit.dao.model.Skill;
-import ua.goit.view.Util;
 
-import java.util.List;
+import java.util.Set;
 
 public class HibernateSkillService implements HibernateService<Skill>{
     private final HibernateSkillDAO dao;
@@ -15,20 +14,24 @@ public class HibernateSkillService implements HibernateService<Skill>{
     }
 
     @Override
-    public String create(Skill entity) {
+    public Skill create(Skill entity) {
         try {
-            dao.create(entity);
-            return "Your request has been processed successfully";
+            Integer identifier = dao.create(entity);
+            if (identifier!=null){
+                return dao.findById(identifier);
+            } else {
+                throw new RuntimeException();
+            }
         } catch (Exception e) {
             e.printStackTrace();
-            return "An error has occurred, please resend the request";
+            throw new RuntimeException();
         }
     }
 
     @Override
     public String delete(Skill entity) {
         try {
-            dao.delete(entity);
+            dao.delete(entity.getSkill_id());
             return "Your request has been processed successfully";
         } catch (Exception e) {
             e.printStackTrace();
@@ -37,35 +40,34 @@ public class HibernateSkillService implements HibernateService<Skill>{
     }
 
     @Override
-    public String update(Skill entity) {
+    public Skill update(Skill entity) {
         try {
             dao.update(entity);
-            return dao.findById(entity.getSkill_id()).toString();
+            return dao.findById(entity.getSkill_id());
         } catch (Exception e) {
             e.printStackTrace();
-            return "An error has occurred, please resend the request";
-        }
-
-    }
-
-    @Override
-    public String findById(Integer id) {
-        try {
-            return dao.findById(id).toString();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "An error has occurred, please resend the request";
+            throw new RuntimeException();
         }
     }
 
     @Override
-    public String getAll() {
+    public Skill findById(Integer id) {
         try {
-            List<Skill> skills = dao.getAll();
-            return Util.joinListElements(skills);
+            return dao.findById(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+
+    @Override
+    public Set<Skill> getAll() {
+        try {
+            Set<Skill> skills = dao.getAll();
+            return dao.getAll();
         } catch (Exception e){
             e.printStackTrace();
-            return "An error has occurred, please resend the request";
+            throw new RuntimeException();
         }
 
     }

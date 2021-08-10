@@ -58,62 +58,92 @@ public class Converter {
     }
 
     private static Set<DeveloperDTO> fromDevelopers(Set<Developer> developers) {
-        return developers.stream()
-                .map(Converter::fromDeveloper)
-                .collect(Collectors.toSet());
+        if (developers!=null){
+            return developers.stream()
+                    .map(Converter::fromDeveloper)
+                    .collect(Collectors.toSet());
+        }
+        return null;
     }
 
     private static Set<Developer> toDevelopers(Set<DeveloperDTO> developers) {
-        return developers.stream()
-                .map(Converter::toDeveloper)
-                .collect(Collectors.toSet());
+        if (developers!=null){
+            return developers.stream()
+                    .map(Converter::toDeveloper)
+                    .collect(Collectors.toSet());
+        }
+        return null;
     }
 
     private static Set<CompanyDTO> fromCompanies(Set<Company> companies) {
-        return companies.stream()
-                .map(Converter::fromCompany)
-                .collect(Collectors.toSet());
+        if (companies!=null){
+            return companies.stream()
+                    .map(Converter::fromCompany)
+                    .collect(Collectors.toSet());
+        }
+        return null;
     }
 
     private static Set<Company> toCompanies(Set<CompanyDTO> companies) {
-        return companies.stream()
-                .map(Converter::toCompany)
-                .collect(Collectors.toSet());
+        if (companies!=null){
+            return companies.stream()
+                    .map(Converter::toCompany)
+                    .collect(Collectors.toSet());
+        }
+        return null;
     }
 
     private static Set<SkillDTO> fromSkills(Set<Skill> skills) {
-        return skills.stream()
-                .map(Converter::fromSkill)
-                .collect(Collectors.toSet());
+        if (skills!=null){
+            return skills.stream()
+                    .map(Converter::fromSkill)
+                    .collect(Collectors.toSet());
+        }
+        return null;
     }
 
     private static Set<Skill> toSkills(Set<SkillDTO> skills) {
-        return skills.stream()
-                .map(Converter::toSkill)
-                .collect(Collectors.toSet());
+        if (skills!=null){
+            return skills.stream()
+                    .map(Converter::toSkill)
+                    .collect(Collectors.toSet());
+        }
+        return null;
     }
 
     private static Set<ProjectDTO> fromProjects(Set<Project> projects) {
-        return projects.stream()
-                .map(Converter::fromProject)
-                .collect(Collectors.toSet());
+        if (projects!=null){
+            return projects.stream()
+                    .map(Converter::fromProject)
+                    .collect(Collectors.toSet());
+        }
+        return null;
     }
 
     private static Set<Project> toProjects(Set<ProjectDTO> projects) {
-        return projects.stream()
-                .map(Converter::toProject)
-                .collect(Collectors.toSet());
+        if (projects!=null){
+            return projects.stream()
+                    .map(Converter::toProject)
+                    .collect(Collectors.toSet());
+        }
+        return null;
     }
 
     private static Set<CustomerDTO> fromCustomers(Set<Customer> customers) {
-        return customers.stream()
-                .map(Converter::fromCustomer)
-                .collect(Collectors.toSet());
+        if (customers!=null){
+            return customers.stream()
+                    .map(Converter::fromCustomer)
+                    .collect(Collectors.toSet());
+        }
+        return null;
     }
 
     private static Set<Customer> toCustomers(Set<CustomerDTO> customers) {
-        return customers.stream()
-                .map(Converter::toCustomer)
-                .collect(Collectors.toSet());
+        if (customers!=null) {
+            return customers.stream()
+                    .map(Converter::toCustomer)
+                    .collect(Collectors.toSet());
+        }
+        return null;
     }
 }

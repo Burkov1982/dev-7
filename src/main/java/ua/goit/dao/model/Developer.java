@@ -52,7 +52,7 @@ public class Developer {
         return projects;
     }
 
-    public void setProjects(Set<Project> projects) {
+    public synchronized void setProjects(Set<Project> projects) {
         this.projects = projects;
     }
 
@@ -60,7 +60,7 @@ public class Developer {
         return skills;
     }
 
-    public void setSkills(Set<Skill> skills) {
+    public synchronized void setSkills(Set<Skill> skills) {
         this.skills = skills;
     }
 

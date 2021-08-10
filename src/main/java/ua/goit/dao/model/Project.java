@@ -23,7 +23,7 @@ public class Project {
 
     @ManyToMany(fetch = FetchType.EAGER, targetEntity = ua.goit.dao.model.Customer.class)
     @JoinTable(
-            name = "project_customers",
+            name = "customer_projects",
             joinColumns = @JoinColumn(name = "project_id"),
             inverseJoinColumns = @JoinColumn(name = "customer_id"))
     private Set<Customer> customers;
@@ -61,7 +61,7 @@ public class Project {
         return developers;
     }
 
-    public void setDevelopers(Set<Developer> developers) {
+    public synchronized void setDevelopers(Set<Developer> developers) {
         this.developers = developers;
     }
 
@@ -69,7 +69,7 @@ public class Project {
         return customers;
     }
 
-    public void setCustomers(Set<Customer> customers) {
+    public synchronized void setCustomers(Set<Customer> customers) {
         this.customers = customers;
     }
 
@@ -77,7 +77,7 @@ public class Project {
         return companies;
     }
 
-    public void setCompanies(Set<Company> companies) {
+    public synchronized void setCompanies(Set<Company> companies) {
         this.companies = companies;
     }
 
