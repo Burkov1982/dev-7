@@ -4,26 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ee2031a-2ec1-4830-9b05-86599171afbc" name="Changes" comment="Fixed StackOverflowError from service package">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/view/create/links/addCompanyProjectsFrom.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/view/create/links/addCustomerProjectsForm.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/view/create/links/addProjectDevelopersFrom.jsp" afterDir="false" />
+    <list default="true" id="1ee2031a-2ec1-4830-9b05-86599171afbc" name="Changes" comment="Completed associative creation.">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/view/create/links/deleteCompanyProjectsFrom.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/view/create/links/deleteCustomerProjectsForm.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/view/create/links/deleteDeveloperSkillsFrom.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/view/create/links/deleteProjectDevelopersFrom.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/view/create/links/updateCompanyProjectsFrom.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/view/create/links/updateCustomerProjectsForm.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/view/create/links/updateDeveloperSkillsFrom.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/view/create/links/updateProjectDevelopersFrom.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/projectDevelopersServlets/AddProjectDevelopersServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/projectDevelopersServlets/AddProjectDevelopersServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/сompanyProjectsServlets/AddCompanyProjectsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/сompanyProjectsServlets/AddCompanyProjectsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/сustomerProjectsServlets/AddCustomerProjectsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/сustomerProjectsServlets/AddCustomerProjectsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/initDB.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/initDB.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/style/sidebar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/style/sidebar.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dao/model/Company.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dao/model/Company.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dao/model/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dao/model/Customer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dao/model/Developer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dao/model/Developer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dao/model/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dao/model/Project.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dao/model/Skill.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dao/model/Skill.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dto/CompanyDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dto/CompanyDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dto/CustomerDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dto/CustomerDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dto/DeveloperDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dto/DeveloperDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dto/ProjectDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dto/ProjectDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dto/SkillDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dto/SkillDTO.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +81,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/java-dev-2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/view/create/links" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -99,6 +89,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Я\IdeaProjects\hibernate-homework\src\main\webapp\view\create\links" />
       <recent name="C:\Users\Я\IdeaProjects\hibernate-homework\src\main\java\ua\goit\controller\linkServlets" />
       <recent name="C:\Users\Я\IdeaProjects\hibernate-homework" />
     </key>
@@ -211,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628607524470</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Completed associative creation.">
+      <created>1628616453500</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1628616453500</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -248,7 +246,8 @@
     <MESSAGE value="Some updates. Refactored controller package structure." />
     <MESSAGE value="Refactored code. Restructured service package. Converters package added" />
     <MESSAGE value="Fixed StackOverflowError from service package" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed StackOverflowError from service package" />
+    <MESSAGE value="Completed associative creation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed associative creation." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
