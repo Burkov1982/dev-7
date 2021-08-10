@@ -26,6 +26,14 @@ public class DeveloperDTO {
         this.skills = skills;
     }
 
+    public DeveloperDTO(Integer developer_id, String first_name, String last_name, String gender, Integer salary) {
+        this.developer_id = developer_id;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.gender = gender;
+        this.salary = salary;
+    }
+
     public Set<ProjectDTO> getProjects() {
         return projects;
     }

@@ -48,6 +48,14 @@ public class Developer {
         this.skills = skills;
     }
 
+    public Developer(Integer developer_id, String first_name, String last_name, String gender, Integer salary) {
+        this.developer_id = developer_id;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.gender = gender;
+        this.salary = salary;
+    }
+
     public Set<Project> getProjects() {
         return projects;
     }

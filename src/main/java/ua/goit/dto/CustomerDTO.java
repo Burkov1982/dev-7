@@ -16,6 +16,11 @@ public class CustomerDTO {
         this.projects = projects;
     }
 
+    public CustomerDTO(Integer customer_id, String customer_name) {
+        this.customer_id = customer_id;
+        this.customer_name = customer_name;
+    }
+
     public Set<ProjectDTO> getProjects() {
         return projects;
     }

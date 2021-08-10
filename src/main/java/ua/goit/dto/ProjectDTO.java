@@ -17,7 +17,8 @@ public class ProjectDTO {
     }
 
     public ProjectDTO(Integer project_id, String project_name, String project_description, Integer cost,
-                      LocalDate start_date, Set<CustomerDTO> customers, Set<CompanyDTO> companies, Set<DeveloperDTO> developers) {
+                      LocalDate start_date, Set<CustomerDTO> customers, Set<CompanyDTO> companies,
+                      Set<DeveloperDTO> developers) {
         this.project_id = project_id;
         this.project_name = project_name;
         this.project_description = project_description;
@@ -26,6 +27,15 @@ public class ProjectDTO {
         this.customers = customers;
         this.companies = companies;
         this.developers = developers;
+    }
+
+    public ProjectDTO(Integer project_id, String project_name, String project_description, Integer cost,
+                      LocalDate start_date) {
+        this.project_id = project_id;
+        this.project_name = project_name;
+        this.project_description = project_description;
+        this.cost = cost;
+        this.start_date = start_date;
     }
 
     public Set<CustomerDTO> getCustomers() {

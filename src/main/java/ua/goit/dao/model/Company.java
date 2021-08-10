@@ -33,6 +33,12 @@ public class Company{
         this.projects = projects;
     }
 
+    public Company(Integer company_id, String company_name, String headquarters) {
+        this.company_id = company_id;
+        this.company_name = company_name;
+        this.headquarters = headquarters;
+    }
+
     public Integer getCompany_id() {
         return company_id;
     }

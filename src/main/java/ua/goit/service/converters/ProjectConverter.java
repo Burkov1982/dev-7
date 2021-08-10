@@ -43,4 +43,14 @@ public class ProjectConverter {
         }
         return null;
     }
+
+    public static Project toProjectWithoutAssociative(ProjectDTO projectDTO){
+        return new Project(projectDTO.getProject_id(), projectDTO.getProject_name(), projectDTO.getProject_description(),
+                projectDTO.getCost(), projectDTO.getStart_date());
+    }
+
+    public static ProjectDTO fromProjectWithoutAssociative(Project project) {
+        return new ProjectDTO(project.getProject_id(), project.getProject_name(), project.getProject_description(),
+                project.getCost(), project.getStart_date());
+    }
 }

@@ -30,6 +30,11 @@ public class Customer {
         this.projects = projects;
     }
 
+    public Customer(Integer customer_id, String customer_name) {
+        this.customer_id = customer_id;
+        this.customer_name = customer_name;
+    }
+
     public Set<Project> getProjects() {
         return projects;
     }

@@ -27,7 +27,7 @@ public class DeveloperConverter {
     public static Set<Developer> toDevelopers(Set<DeveloperDTO> developers) {
         if (developers!=null){
             return developers.stream()
-                    .map(DeveloperConverter::toDeveloper)
+                    .map(DeveloperConverter::toDeveloperWithoutAssociative)
                     .collect(Collectors.toSet());
         }
         return null;
@@ -37,9 +37,19 @@ public class DeveloperConverter {
     public static Set<DeveloperDTO> fromDevelopers(Set<Developer> developers) {
         if (developers!=null){
             return developers.stream()
-                    .map(DeveloperConverter::fromDeveloper)
+                    .map(DeveloperConverter::fromDeveloperWithoutAssociative)
                     .collect(Collectors.toSet());
         }
         return null;
+    }
+
+    public static Developer toDeveloperWithoutAssociative(DeveloperDTO developerDTO){
+        return new Developer(developerDTO.getDeveloper_id(), developerDTO.getFirst_name(), developerDTO.getLast_name(),
+                developerDTO.getGender(), developerDTO.getSalary());
+    }
+
+    public static DeveloperDTO fromDeveloperWithoutAssociative(Developer developer){
+        return new DeveloperDTO(developer.getDeveloper_id(), developer.getFirst_name(), developer.getLast_name(),
+                developer.getGender(), developer.getSalary());
     }
 }

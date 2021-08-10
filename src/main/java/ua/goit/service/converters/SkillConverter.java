@@ -37,4 +37,12 @@ public class SkillConverter {
         }
         return null;
     }
+
+    public static Skill toSkillWithoutAssociative(SkillDTO skillDTO) {
+        return new Skill(skillDTO.getSkill_id(), skillDTO.getBranch(), skillDTO.getStage());
+    }
+
+    public static SkillDTO fromSkillWithoutAssociative(Skill skill) {
+        return new SkillDTO(skill.getSkill_id(), skill.getBranch(), skill.getStage());
+    }
 }

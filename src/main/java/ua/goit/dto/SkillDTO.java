@@ -18,6 +18,12 @@ public class SkillDTO {
         this.developers = developers;
     }
 
+    public SkillDTO(Integer skill_id, String branch, String stage) {
+        this.skill_id = skill_id;
+        this.branch = branch;
+        this.stage = stage;
+    }
+
     public Set<DeveloperDTO> getDevelopers() {
         return developers;
     }

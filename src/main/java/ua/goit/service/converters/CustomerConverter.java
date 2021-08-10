@@ -23,7 +23,7 @@ public class CustomerConverter {
     public static Set<Customer> toCustomers(Set<CustomerDTO> customers) {
         if (customers!=null) {
             return customers.stream()
-                    .map(CustomerConverter::toCustomer)
+                    .map(CustomerConverter::toCustomerWithoutAssociative)
                     .collect(Collectors.toSet());
         }
         return null;
@@ -32,9 +32,17 @@ public class CustomerConverter {
     public static Set<CustomerDTO> fromCustomers(Set<Customer> customers) {
         if (customers!=null){
             return customers.stream()
-                    .map(CustomerConverter::fromCustomer)
+                    .map(CustomerConverter::fromCustomerWithoutAssociative)
                     .collect(Collectors.toSet());
         }
         return null;
+    }
+
+    public static Customer toCustomerWithoutAssociative(CustomerDTO customerDTO){
+        return new Customer(customerDTO.getCustomer_id(), customerDTO.getCustomer_name());
+    }
+
+    public static CustomerDTO fromCustomerWithoutAssociative(Customer customer){
+        return new CustomerDTO(customer.getCustomer_id(), customer.getCustomer_name());
     }
 }

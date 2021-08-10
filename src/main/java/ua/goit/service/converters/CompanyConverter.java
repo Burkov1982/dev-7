@@ -22,16 +22,24 @@ public class CompanyConverter {
     public static Set<Company> toCompanies(Set<CompanyDTO> companies) {
         if (companies!=null){
             return companies.stream()
-                    .map(CompanyConverter::toCompany)
+                    .map(CompanyConverter::toCompanyWithoutAssociative)
                     .collect(Collectors.toSet());
         }
         return null;
     }
 
+    private static Company toCompanyWithoutAssociative(CompanyDTO companyDTO){
+        return new Company(companyDTO.getCompany_id(), companyDTO.getCompany_name(), companyDTO.getHeadquarters());
+    }
+
+    private static CompanyDTO fromCompanyWithoutAssociative(Company company){
+        return new CompanyDTO(company.getCompany_id(), company.getCompany_name(), company.getHeadquarters());
+    }
+
     public static Set<CompanyDTO> fromCompanies(Set<Company> companies) {
         if (companies!=null){
             return companies.stream()
-                    .map(CompanyConverter::fromCompany)
+                    .map(CompanyConverter::fromCompanyWithoutAssociative)
                     .collect(Collectors.toSet());
         }
         return null;

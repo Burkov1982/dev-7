@@ -57,6 +57,15 @@ public class Project {
         this.developers = developers;
     }
 
+    public Project(Integer project_id, String project_name, String project_description, Integer cost,
+                   LocalDate start_date) {
+        this.project_id = project_id;
+        this.project_name = project_name;
+        this.project_description = project_description;
+        this.cost = cost;
+        this.start_date = start_date;
+    }
+
     public Set<Developer> getDevelopers() {
         return developers;
     }
