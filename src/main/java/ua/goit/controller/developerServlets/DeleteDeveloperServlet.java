@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static ua.goit.service.converters.DeveloperConverter.toDeveloper;
+import static ua.goit.config.converters.DeveloperConverter.toDeveloper;
 
 @WebServlet("/deleteDeveloper")
 public class DeleteDeveloperServlet extends HttpServlet {

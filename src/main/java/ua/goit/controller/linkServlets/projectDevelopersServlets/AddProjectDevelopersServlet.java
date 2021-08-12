@@ -1,8 +1,8 @@
 package ua.goit.controller.linkServlets.projectDevelopersServlets;
 
 import ua.goit.config.HibernateDatabaseConnector;
-import ua.goit.dto.DeveloperDTO;
-import ua.goit.dto.ProjectDTO;
+import ua.goit.dao.model.Developer;
+import ua.goit.dao.model.Project;
 import ua.goit.service.HibernateDeveloperService;
 import ua.goit.service.HibernateProjectService;
 
@@ -12,12 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Set;
-
-import static ua.goit.service.converters.DeveloperConverter.fromDeveloper;
-import static ua.goit.service.converters.DeveloperConverter.toDeveloper;
-import static ua.goit.service.converters.ProjectConverter.fromProject;
-import static ua.goit.service.converters.ProjectConverter.toProject;
 
 @WebServlet("/addProjectDevelopers")
 public class AddProjectDevelopersServlet extends HttpServlet {
@@ -34,21 +28,13 @@ public class AddProjectDevelopersServlet extends HttpServlet {
             HibernateDeveloperService developerService = new HibernateDeveloperService
                     (HibernateDatabaseConnector.getSessionFactory());
 
-            ProjectDTO projectDTO = fromProject(projectService.findById
-                    (Integer.parseInt(req.getParameter("project_id"))));
-            DeveloperDTO developerDTO = fromDeveloper(developerService.findById
-                    (Integer.parseInt(req.getParameter("developer_id"))));
+            Project project = projectService.findById(Integer.parseInt(req.getParameter("project_id")));
+            Developer developer = developerService.findById(Integer.parseInt(req.getParameter("developer_id")));
 
-            Set<ProjectDTO> projects = developerDTO.getProjects();
-            projects.add(projectDTO);
-            developerDTO.setProjects(projects);
+            project.addDeveloper(developer);
 
-            Set<DeveloperDTO> developers = projectDTO.getDevelopers();
-            developers.add(developerDTO);
-            projectDTO.setDevelopers(developers);
-
-            developerService.update(toDeveloper(developerDTO));
-            projectService.update(toProject(projectDTO));
+            developerService.update(developer);
+            projectService.update(project);
             req.setAttribute("result", "Your request has been processed successfully");
         } catch (Exception e) {
             req.setAttribute("result", "An error has occurred, please resend the request");

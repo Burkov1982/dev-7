@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static ua.goit.service.converters.SkillConverter.toSkill;
+import static ua.goit.config.converters.SkillConverter.toSkill;
 
 @WebServlet("/updateSkill")
 public class UpdateSkillServlet extends HttpServlet {

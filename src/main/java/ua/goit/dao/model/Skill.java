@@ -15,7 +15,12 @@ public class Skill {
     @Column(name = "stage")
     private String stage;
 
-    @ManyToMany(fetch = FetchType.EAGER, targetEntity = ua.goit.dao.model.Developer.class)
+    @ManyToMany(fetch = FetchType.EAGER,
+            targetEntity = ua.goit.dao.model.Developer.class,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            })
     @JoinTable(
             name = "developer_skills",
             joinColumns = @JoinColumn(name = "skill_id"),
@@ -36,6 +41,16 @@ public class Skill {
         this.skill_id = skill_id;
         this.branch = branch;
         this.stage = stage;
+    }
+
+    public void addDeveloper(Developer developer) {
+        this.developers.add(developer);
+        developer.getSkills().add(this);
+    }
+
+    public void removeDeveloper(Developer developer) {
+        this.developers.remove(developer);
+        developer.getSkills().remove(this);
     }
 
     public Set<Developer> getDevelopers() {

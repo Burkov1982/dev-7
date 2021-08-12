@@ -24,6 +24,20 @@ public class CompanyDTO {
         this.headquarters = headquarters;
     }
 
+    public void addProject(ProjectDTO project){
+        this.projects.add(project);
+        Set<CompanyDTO> companies = project.getCompanies();
+        companies.add(this);
+        project.setCompanies(companies);
+    }
+
+    public void removeProject(ProjectDTO project){
+        this.projects.remove(project);
+        Set<CompanyDTO> companies = project.getCompanies();
+        companies.remove(this);
+        project.setCompanies(companies);
+    }
+
     public Set<ProjectDTO> getProjects() {
         return projects;
     }

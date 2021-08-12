@@ -20,18 +20,10 @@ public class Developer {
     @Column(name = "salary")
     private Integer salary;
 
-    @ManyToMany(fetch = FetchType.EAGER, targetEntity = ua.goit.dao.model.Project.class)
-    @JoinTable(
-            name = "project_developers",
-            joinColumns = @JoinColumn(name = "developer_id"),
-            inverseJoinColumns = @JoinColumn(name = "project_id"))
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "developers")
     private Set<Project> projects;
 
-    @ManyToMany(fetch = FetchType.EAGER, targetEntity = ua.goit.dao.model.Skill.class)
-    @JoinTable(
-            name = "developer_skills",
-            joinColumns = @JoinColumn(name = "developer_id"),
-            inverseJoinColumns = @JoinColumn(name = "skill_id"))
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "developers")
     private Set<Skill> skills;
 
     public Developer() {

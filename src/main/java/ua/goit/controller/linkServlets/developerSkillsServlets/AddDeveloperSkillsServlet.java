@@ -1,8 +1,8 @@
 package ua.goit.controller.linkServlets.developerSkillsServlets;
 
 import ua.goit.config.HibernateDatabaseConnector;
-import ua.goit.dto.DeveloperDTO;
-import ua.goit.dto.SkillDTO;
+import ua.goit.dao.model.Developer;
+import ua.goit.dao.model.Skill;
 import ua.goit.service.HibernateDeveloperService;
 import ua.goit.service.HibernateSkillService;
 
@@ -12,12 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Set;
-
-import static ua.goit.service.converters.DeveloperConverter.fromDeveloper;
-import static ua.goit.service.converters.DeveloperConverter.toDeveloper;
-import static ua.goit.service.converters.SkillConverter.fromSkill;
-import static ua.goit.service.converters.SkillConverter.toSkill;
 
 @WebServlet("/addDeveloperSkills")
 public class AddDeveloperSkillsServlet extends HttpServlet {
@@ -33,21 +27,14 @@ public class AddDeveloperSkillsServlet extends HttpServlet {
                     (HibernateDatabaseConnector.getSessionFactory());
             HibernateDeveloperService developerService = new HibernateDeveloperService
                     (HibernateDatabaseConnector.getSessionFactory());
-            SkillDTO skillDTO = fromSkill(skillService.findById
-                    (Integer.parseInt(req.getParameter("skill_id"))));
-            DeveloperDTO developerDTO = fromDeveloper(developerService.findById
-                    (Integer.parseInt(req.getParameter("developer_id"))));
+            Skill skill = skillService.findById
+                    (Integer.parseInt(req.getParameter("skill_id")));
+            Developer developer = developerService.findById
+                    (Integer.parseInt(req.getParameter("developer_id")));
 
-            Set<SkillDTO> skills = developerDTO.getSkills();
-            skills.add(skillDTO);
-            developerDTO.setSkills(skills);
-
-            Set<DeveloperDTO> developers = skillDTO.getDevelopers();
-            developers.add(developerDTO);
-            skillDTO.setDevelopers(developers);
-
-            developerService.update(toDeveloper(developerDTO));
-            skillService.update(toSkill(skillDTO));
+            skill.addDeveloper(developer);
+            skillService.update(skill);
+            developerService.update(developer);
             req.setAttribute("result", "Your request has been processed successfully");
         } catch (Exception e) {
             req.setAttribute("result", "An error has occurred, please resend the request");

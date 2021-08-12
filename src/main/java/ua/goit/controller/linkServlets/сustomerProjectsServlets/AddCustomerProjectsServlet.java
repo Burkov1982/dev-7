@@ -1,8 +1,8 @@
 package ua.goit.controller.linkServlets.сustomerProjectsServlets;
 
 import ua.goit.config.HibernateDatabaseConnector;
-import ua.goit.dto.CustomerDTO;
-import ua.goit.dto.ProjectDTO;
+import ua.goit.dao.model.Customer;
+import ua.goit.dao.model.Project;
 import ua.goit.service.HibernateCustomerService;
 import ua.goit.service.HibernateProjectService;
 
@@ -12,12 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Set;
-
-import static ua.goit.service.converters.CustomerConverter.fromCustomer;
-import static ua.goit.service.converters.CustomerConverter.toCustomer;
-import static ua.goit.service.converters.ProjectConverter.fromProject;
-import static ua.goit.service.converters.ProjectConverter.toProject;
 
 @WebServlet("/addCustomerProjects")
 public class AddCustomerProjectsServlet extends HttpServlet {
@@ -34,21 +28,13 @@ public class AddCustomerProjectsServlet extends HttpServlet {
             HibernateCustomerService customerService = new HibernateCustomerService
                     (HibernateDatabaseConnector.getSessionFactory());
 
-            ProjectDTO projectDTO = fromProject(projectService.findById
-                    (Integer.parseInt(req.getParameter("project_id"))));
-            CustomerDTO customerDTO = fromCustomer(customerService.findById
-                    (Integer.parseInt(req.getParameter("customer_id"))));
+            Project project = projectService.findById(Integer.parseInt(req.getParameter("project_id")));
+            Customer customer = customerService.findById(Integer.parseInt(req.getParameter("customer_id")));
 
-            Set<ProjectDTO> projects = customerDTO.getProjects();
-            projects.add(projectDTO);
-            customerDTO.setProjects(projects);
+            customer.addProject(project);
 
-            Set<CustomerDTO> customers = projectDTO.getCustomers();
-            customers.add(customerDTO);
-            projectDTO.setCustomers(customers);
-
-            customerService.update(toCustomer(customerDTO));
-            projectService.update(toProject(projectDTO));
+            customerService.update(customer);
+            projectService.update(project);
             req.setAttribute("result", "Your request has been processed successfully");
         } catch (Exception e) {
             req.setAttribute("result", "An error has occurred, please resend the request");

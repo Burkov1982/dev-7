@@ -1,4 +1,4 @@
-package ua.goit.service.converters;
+package ua.goit.config.converters;
 
 import ua.goit.dao.model.Company;
 import ua.goit.dto.CompanyDTO;
@@ -6,8 +6,8 @@ import ua.goit.dto.CompanyDTO;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static ua.goit.service.converters.ProjectConverter.fromProjects;
-import static ua.goit.service.converters.ProjectConverter.toProjects;
+import static ua.goit.config.converters.ProjectConverter.fromProjects;
+import static ua.goit.config.converters.ProjectConverter.toProjects;
 
 public class CompanyConverter {
     public static Company toCompany(CompanyDTO companyDTO){

@@ -1,4 +1,4 @@
-package ua.goit.service.converters;
+package ua.goit.config.converters;
 
 import ua.goit.dao.model.Customer;
 import ua.goit.dto.CustomerDTO;
@@ -6,8 +6,8 @@ import ua.goit.dto.CustomerDTO;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static ua.goit.service.converters.ProjectConverter.fromProjects;
-import static ua.goit.service.converters.ProjectConverter.toProjects;
+import static ua.goit.config.converters.ProjectConverter.fromProjects;
+import static ua.goit.config.converters.ProjectConverter.toProjects;
 
 public class CustomerConverter {
     public static Customer toCustomer(CustomerDTO customerDTO){

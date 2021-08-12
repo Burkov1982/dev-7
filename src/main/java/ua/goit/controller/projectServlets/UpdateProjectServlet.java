@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static ua.goit.service.converters.ProjectConverter.toProject;
+import static ua.goit.config.converters.ProjectConverter.toProject;
 
 @WebServlet("/updateProject")
 public class UpdateProjectServlet extends HttpServlet {

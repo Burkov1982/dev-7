@@ -21,21 +21,18 @@ public class Project {
     @Column(name = "start_date")
     private LocalDate start_date;
 
-    @ManyToMany(fetch = FetchType.EAGER, targetEntity = ua.goit.dao.model.Customer.class)
-    @JoinTable(
-            name = "customer_projects",
-            joinColumns = @JoinColumn(name = "project_id"),
-            inverseJoinColumns = @JoinColumn(name = "customer_id"))
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "projects")
     private Set<Customer> customers;
 
-    @ManyToMany(fetch = FetchType.EAGER, targetEntity = ua.goit.dao.model.Company.class)
-    @JoinTable(
-            name = "company_projects",
-            joinColumns = @JoinColumn(name = "project_id"),
-            inverseJoinColumns = @JoinColumn(name = "company_id"))
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "projects")
     private Set<Company> companies;
 
-    @ManyToMany(fetch = FetchType.EAGER, targetEntity = ua.goit.dao.model.Developer.class)
+    @ManyToMany(fetch = FetchType.EAGER,
+            targetEntity = ua.goit.dao.model.Developer.class,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            })
     @JoinTable(
             name = "project_developers",
             joinColumns = @JoinColumn(name = "project_id"),
@@ -64,6 +61,16 @@ public class Project {
         this.project_description = project_description;
         this.cost = cost;
         this.start_date = start_date;
+    }
+
+    public void addDeveloper(Developer developer) {
+        this.developers.add(developer);
+        developer.getProjects().add(this);
+    }
+
+    public void removeDeveloper(Developer developer) {
+        this.developers.remove(developer);
+        developer.getProjects().remove(this);
     }
 
     public Set<Developer> getDevelopers() {

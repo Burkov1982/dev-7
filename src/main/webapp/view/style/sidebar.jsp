@@ -20,9 +20,10 @@
     <button class="w3-button">Read All <i class="fa fa-caret-down"></i></button>
     <div class="w3-dropdown-content w3-bar-block">
       <a href="/developers" class="w3-bar-item w3-button">All Developers</a>
-      <a href="/linksCustomers" class="w3-bar-item w3-button">All Customers-Companies Links</a>
-      <a href="/linksDeveloper" class="w3-bar-item w3-button">All Developer-Skills Links</a>
-      <a href="/linksProject" class="w3-bar-item w3-button">All Project-Developers Links</a>
+      <a href="/developerSkills" class="w3-bar-item w3-button">Developer-Skills Associative</a>
+      <a href="/projectDevelopers" class="w3-bar-item w3-button">Project-Developers Associative</a>
+      <a href="/companyProjects" class="w3-bar-item w3-button">Company-Projects Associative</a>
+      <a href="/customerProjects" class="w3-bar-item w3-button">Customer-Projects Associative</a>
       <a href="/projects" class="w3-bar-item w3-button">All Projects</a>
       <a href="/customers" class="w3-bar-item w3-button">All Customers</a>
       <a href="/companies" class="w3-bar-item w3-button">All Companies</a>
@@ -46,7 +47,10 @@
     <button class="w3-button">Update <i class="fa fa-caret-down"></i></button>
     <div class="w3-dropdown-content w3-bar-block">
       <a href="/updateDeveloper" class="w3-bar-item w3-button">Developer</a>
-      <a href="/updateLink" class="w3-bar-item w3-button">Link</a>
+      <a href="/updateDeveloperSkills" class="w3-bar-item w3-button">Developer-Skills Associative</a>
+      <a href="/updateProjectDevelopers" class="w3-bar-item w3-button">Project-Developers Associative</a>
+      <a href="/updateCompanyProjects" class="w3-bar-item w3-button">Company-Projects Associative</a>
+      <a href="/updateCustomerProjects" class="w3-bar-item w3-button">Customer-Projects Associative</a>
       <a href="/updateProject" class="w3-bar-item w3-button">Project</a>
       <a href="/updateCustomer" class="w3-bar-item w3-button">Customer</a>
       <a href="/updateCompany" class="w3-bar-item w3-button">Company</a>
@@ -58,7 +62,10 @@
     <button class="w3-button">Delete <i class="fa fa-caret-down"></i></button>
     <div class="w3-dropdown-content w3-bar-block">
       <a href="/deleteDeveloper" class="w3-bar-item w3-button">Developer</a>
-      <a href="/deleteLink" class="w3-bar-item w3-button">Link</a>
+      <a href="/deleteDeveloperSkills" class="w3-bar-item w3-button">Developer-Skills Associative</a>
+      <a href="/deleteProjectDevelopers" class="w3-bar-item w3-button">Project-Developers Associative</a>
+      <a href="/deleteCompanyProjects" class="w3-bar-item w3-button">Company-Projects Associative</a>
+      <a href="/deleteCustomerProjects" class="w3-bar-item w3-button">Customer-Projects Associative</a>
       <a href="/deleteProject" class="w3-bar-item w3-button">Project</a>
       <a href="/deleteCustomer" class="w3-bar-item w3-button">Customer</a>
       <a href="/deleteCompany" class="w3-bar-item w3-button">Company</a>

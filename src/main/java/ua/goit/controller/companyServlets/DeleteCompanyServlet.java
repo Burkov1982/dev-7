@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static ua.goit.service.converters.CompanyConverter.toCompany;
+import static ua.goit.config.converters.CompanyConverter.toCompany;
 
 @WebServlet("/deleteCompany")
 public class DeleteCompanyServlet extends HttpServlet {

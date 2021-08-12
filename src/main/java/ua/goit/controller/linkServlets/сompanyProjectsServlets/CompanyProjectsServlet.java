@@ -1,4 +1,7 @@
 package ua.goit.controller.linkServlets.сompanyProjectsServlets;
 
-public class CompanyProjectsServlet {
+import javax.servlet.http.HttpServlet;
+
+public class CompanyProjectsServlet extends HttpServlet {
+
 }

@@ -1,4 +1,4 @@
-package ua.goit.service.converters;
+package ua.goit.config.converters;
 
 import ua.goit.dao.model.Developer;
 import ua.goit.dto.DeveloperDTO;
@@ -6,10 +6,10 @@ import ua.goit.dto.DeveloperDTO;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static ua.goit.service.converters.ProjectConverter.fromProjects;
-import static ua.goit.service.converters.ProjectConverter.toProjects;
-import static ua.goit.service.converters.SkillConverter.fromSkills;
-import static ua.goit.service.converters.SkillConverter.toSkills;
+import static ua.goit.config.converters.ProjectConverter.fromProjects;
+import static ua.goit.config.converters.ProjectConverter.toProjects;
+import static ua.goit.config.converters.SkillConverter.fromSkills;
+import static ua.goit.config.converters.SkillConverter.toSkills;
 
 public class DeveloperConverter {
     public static Developer toDeveloper(DeveloperDTO developerDTO){

@@ -14,7 +14,12 @@ public class Customer {
     @Column(name = "customer_name")
     private String customer_name;
 
-    @ManyToMany(fetch = FetchType.EAGER, targetEntity = ua.goit.dao.model.Project.class)
+    @ManyToMany(fetch = FetchType.EAGER,
+            targetEntity = ua.goit.dao.model.Project.class,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            })
     @JoinTable(
             name = "customer_projects",
             joinColumns = @JoinColumn(name = "customer_id"),
@@ -33,6 +38,17 @@ public class Customer {
     public Customer(Integer customer_id, String customer_name) {
         this.customer_id = customer_id;
         this.customer_name = customer_name;
+    }
+
+    public void addProject(Project project) {
+        this.projects.add(project);
+        project.getCustomers().add(this);
+    }
+
+
+    public void removeProject(Project project) {
+        this.projects.remove(project);
+        project.getCustomers().remove(this);
     }
 
     public Set<Project> getProjects() {
