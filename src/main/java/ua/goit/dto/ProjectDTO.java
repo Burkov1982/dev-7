@@ -3,6 +3,8 @@ package ua.goit.dto;
 import java.time.LocalDate;
 import java.util.Set;
 
+import static ua.goit.view.Util.joinSetElements;
+
 public class ProjectDTO {
     private Integer project_id;
     private String project_name;
@@ -104,10 +106,29 @@ public class ProjectDTO {
 
     @Override
     public String toString(){
-        return "Project id: " + project_id +
-                "Project name: " + project_name +
-                "Project description: " + project_description +
-                "Project cost: " + cost +
-                "Project start date: " + start_date.toString();
+        return String.format("""
+                Идентификатор проекта: %s <br>
+                Название проета: %s <br>
+                Описание проекта: %s <br>
+                Стоимость проекта: %s <br>
+                Дата начала проекта: %s <br>
+                """, project_id, project_name, project_description, cost, start_date);
+    }
+
+    public String toStringWithAssociative(String associativeSet) {
+        switch (associativeSet) {
+            case "customer" -> {
+                return this + "<br>" + joinSetElements(customers);
+            }
+            case "company" -> {
+                return this + "<br>" + joinSetElements(companies);
+            }
+            case "developer" -> {
+                return this + "<br>" + joinSetElements(developers);
+            }
+            default -> {
+                return "Error";
+            }
+        }
     }
 }

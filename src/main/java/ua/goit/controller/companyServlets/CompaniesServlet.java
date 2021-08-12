@@ -1,7 +1,7 @@
 package ua.goit.controller.companyServlets;
 
 import ua.goit.config.HibernateDatabaseConnector;
-import ua.goit.service.HibernateCompanyService;
+import ua.goit.service.HibernateDeveloperService;
 import ua.goit.view.Util;
 
 import javax.servlet.ServletException;
@@ -13,8 +13,8 @@ import java.io.IOException;
 
 @WebServlet("/companies")
 public class CompaniesServlet extends HttpServlet {
-    private final HibernateCompanyService service =
-            new HibernateCompanyService(HibernateDatabaseConnector.getSessionFactory());
+    private final HibernateDeveloperService service =
+            new HibernateDeveloperService(HibernateDatabaseConnector.getSessionFactory());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -2,6 +2,8 @@ package ua.goit.dto;
 
 import java.util.Set;
 
+import static ua.goit.view.Util.joinSetElements;
+
 public class CompanyDTO {
     private Integer company_id;
     private String company_name;
@@ -75,5 +77,9 @@ public class CompanyDTO {
         return "Company id: " + company_id
                 + "Company name: " + company_name
                 + "Company headquarters:" + headquarters;
+    }
+
+    public String toStringWithAssociative() {
+        return this + "<br>" + joinSetElements(projects);
     }
 }

@@ -2,6 +2,8 @@ package ua.goit.dto;
 
 import java.util.Set;
 
+import static ua.goit.view.Util.joinSetElements;
+
 public class SkillDTO {
     private Integer skill_id;
     private String branch;
@@ -22,6 +24,10 @@ public class SkillDTO {
         this.skill_id = skill_id;
         this.branch = branch;
         this.stage = stage;
+    }
+
+    public String toStringWithAssociative(){
+        return this + joinSetElements(developers);
     }
 
     public Set<DeveloperDTO> getDevelopers() {

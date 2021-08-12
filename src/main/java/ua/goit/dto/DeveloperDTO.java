@@ -2,6 +2,7 @@ package ua.goit.dto;
 
 import java.util.Set;
 
+import static ua.goit.view.Util.joinSetElements;
 public class DeveloperDTO {
     private Integer developer_id;
     private String first_name;
@@ -32,6 +33,20 @@ public class DeveloperDTO {
         this.last_name = last_name;
         this.gender = gender;
         this.salary = salary;
+    }
+
+    public String toStringWithAssociative(String associativeSet) {
+        switch (associativeSet) {
+            case "skill" -> {
+                return this + joinSetElements(skills);
+            }
+            case "project" -> {
+                return this + joinSetElements(projects);
+            }
+            default -> {
+                return "Error";
+            }
+        }
     }
 
     public Set<ProjectDTO> getProjects() {
@@ -92,10 +107,12 @@ public class DeveloperDTO {
 
     @Override
     public String toString(){
-        return "Developer id: " + developer_id +
-                "Developer firstname: " + first_name +
-                "Developer lastname: " + last_name +
-                "Developer gender: " + gender +
-                "Developer salary: " + salary;
+        return String.format("""
+                Идентификатор разработчика: %d <br>
+                Имя разработчика: %s <br>
+                Фамилия разработчика: %s <br>
+                Пол разработчика: %s <br>
+                Зарплата разработчика: %d <br>
+                """, developer_id, first_name, last_name, gender, salary);
     }
 }

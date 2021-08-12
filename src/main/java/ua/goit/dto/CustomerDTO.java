@@ -2,6 +2,8 @@ package ua.goit.dto;
 
 import java.util.Set;
 
+import static ua.goit.view.Util.joinSetElements;
+
 public class CustomerDTO {
     private Integer customer_id;
     private String customer_name;
@@ -49,5 +51,9 @@ public class CustomerDTO {
     public String toString() {
         return  "Customer_id: " + customer_id +
                 "Customer_name: " + customer_name;
+    }
+
+    public String toStringWithAssociative() {
+        return this + "<br>" + joinSetElements(projects);
     }
 }
