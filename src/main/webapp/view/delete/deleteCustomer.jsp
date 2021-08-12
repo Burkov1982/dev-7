@@ -45,7 +45,7 @@ input[type=submit]:hover {
 	<div class="w3-container">
 
       <form action="/deleteCustomer" method="POST">
-        <input type="number" id="customerID" name="customerID" placeholder="Enter customer ID">
+        <input type="number" id="companyID" name="companyID" required="" placeholder="Enter company ID">
         <input type="submit" value="Submit">
       </form>
 	</div>

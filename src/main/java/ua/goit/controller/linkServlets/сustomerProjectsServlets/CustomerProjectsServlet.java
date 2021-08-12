@@ -1,6 +1,8 @@
 package ua.goit.controller.linkServlets.сustomerProjectsServlets;
 
 import ua.goit.config.HibernateDatabaseConnector;
+import ua.goit.dao.model.Customer;
+import ua.goit.dao.model.Project;
 import ua.goit.dto.CustomerDTO;
 import ua.goit.dto.ProjectDTO;
 import ua.goit.service.HibernateCustomerService;
@@ -32,11 +34,21 @@ public class CustomerProjectsServlet extends HttpServlet {
                     (HibernateDatabaseConnector.getSessionFactory());
 
             if (req.getParameter("table").equals("project")) {
-                ProjectDTO projectDTO = fromProject(projectService.findById(Integer.parseInt(req.getParameter("id"))));
-                req.setAttribute("result", projectDTO.toStringWithAssociative("customer"));
+                Project project = projectService.findById(Integer.parseInt(req.getParameter("id")));
+                if (project!=null){
+                    ProjectDTO projectDTO = fromProject(project);
+                    req.setAttribute("result", projectDTO.toStringWithAssociative("customer"));
+                } else {
+                    req.setAttribute("result", "An error has occurred, please resend the request");
+                }
             } else {
-                CustomerDTO customerDTO = fromCustomer(customerService.findById(Integer.parseInt(req.getParameter("id"))));
-                req.setAttribute("result", customerDTO.toStringWithAssociative());
+                Customer customer = customerService.findById(Integer.parseInt(req.getParameter("id")));
+                if (customer!=null){
+                    CustomerDTO customerDTO = fromCustomer(customer);
+                    req.setAttribute("result", customerDTO.toStringWithAssociative());
+                } else {
+                    req.setAttribute("result", "An error has occurred, please resend the request");
+                }
             }
             req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
         } catch (Exception e){

@@ -31,14 +31,17 @@ public class AddProjectDevelopersServlet extends HttpServlet {
             Project project = projectService.findById(Integer.parseInt(req.getParameter("project_id")));
             Developer developer = developerService.findById(Integer.parseInt(req.getParameter("developer_id")));
 
-            project.addDeveloper(developer);
-
-            developerService.update(developer);
-            projectService.update(project);
-            req.setAttribute("result", "Your request has been processed successfully");
+            if (project!=null && developer!=null){
+                project.addDeveloper(developer);
+                developerService.update(developer);
+                projectService.update(project);
+                req.setAttribute("result", "Your request has been processed successfully");
+            } else {
+                req.setAttribute("result", "An error has occurred, please resend the request");
+            }
+            req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
         } catch (Exception e) {
             req.setAttribute("result", "An error has occurred, please resend the request");
         }
-        req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
     }
 }

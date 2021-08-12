@@ -27,7 +27,7 @@ public class SkillDTO {
     }
 
     public String toStringWithAssociative(){
-        return this + joinSetElements(developers);
+        return this + "<br>" + joinSetElements(developers);
     }
 
     public Set<DeveloperDTO> getDevelopers() {
@@ -65,9 +65,9 @@ public class SkillDTO {
     @Override
     public String toString() {
         return String.format("""
-                Идентификатор умения: %s\s
-                Специализация: %s\s
-                Уровень умений: %s\s
-                """, skill_id, branch, stage);
+               Идентификатор умения: %s <br>
+               Специализация: %s <br>
+               Уровень умений: %s <br>
+               """, skill_id, branch, stage);
     }
 }

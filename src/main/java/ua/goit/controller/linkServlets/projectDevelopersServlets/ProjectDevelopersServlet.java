@@ -1,6 +1,7 @@
 package ua.goit.controller.linkServlets.projectDevelopersServlets;
 
 import ua.goit.config.HibernateDatabaseConnector;
+import ua.goit.dao.model.Project;
 import ua.goit.dto.DeveloperDTO;
 import ua.goit.dto.ProjectDTO;
 import ua.goit.service.HibernateDeveloperService;
@@ -32,8 +33,13 @@ public class ProjectDevelopersServlet extends HttpServlet {
                     (HibernateDatabaseConnector.getSessionFactory());
 
             if (req.getParameter("table").equals("project")) {
-                ProjectDTO projectDTO = fromProject(projectService.findById(Integer.parseInt(req.getParameter("id"))));
-                req.setAttribute("result", projectDTO.toStringWithAssociative("developer"));
+                Project project = projectService.findById(Integer.parseInt(req.getParameter("id")));
+                if (project!=null){
+                    ProjectDTO projectDTO = fromProject(project);
+                    req.setAttribute("result", projectDTO.toStringWithAssociative("developer"));
+                } else {
+                    req.setAttribute("result", "An error has occurred, please resend the request");
+                }
             } else {
                 DeveloperDTO developerDTO = fromDeveloper(developerService.findById(Integer.parseInt(req.getParameter("id"))));
                 req.setAttribute("result", developerDTO.toStringWithAssociative("project"));

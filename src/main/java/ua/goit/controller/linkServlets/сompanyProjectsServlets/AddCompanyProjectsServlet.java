@@ -31,14 +31,18 @@ public class AddCompanyProjectsServlet extends HttpServlet {
             Project project = projectService.findById(Integer.parseInt(req.getParameter("project_id")));
             Company company = companyService.findById(Integer.parseInt(req.getParameter("company_id")));
 
-            company.addProject(project);
-
-            companyService.update(company);
-            projectService.update(project);
-            req.setAttribute("result", "Your request has been processed successfully");
+            if (project!=null && company!=null){
+                company.addProject(project);
+                companyService.update(company);
+                projectService.update(project);
+                req.setAttribute("result", "Your request has been processed successfully");
+            } else {
+                req.setAttribute("result", "An error has occurred, please resend the request");
+            }
+            req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
         } catch (Exception e) {
             req.setAttribute("result", "An error has occurred, please resend the request");
+            req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
         }
-        req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
     }
 }

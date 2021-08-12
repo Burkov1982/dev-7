@@ -38,10 +38,10 @@ public class DeveloperDTO {
     public String toStringWithAssociative(String associativeSet) {
         switch (associativeSet) {
             case "skill" -> {
-                return this + joinSetElements(skills);
+                return this + "<br>" + joinSetElements(skills);
             }
             case "project" -> {
-                return this + joinSetElements(projects);
+                return this + "<br>" + joinSetElements(projects);
             }
             default -> {
                 return "Error";

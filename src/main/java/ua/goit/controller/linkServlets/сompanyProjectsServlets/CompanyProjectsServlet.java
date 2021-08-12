@@ -1,6 +1,8 @@
 package ua.goit.controller.linkServlets.сompanyProjectsServlets;
 
 import ua.goit.config.HibernateDatabaseConnector;
+import ua.goit.dao.model.Company;
+import ua.goit.dao.model.Project;
 import ua.goit.dto.CompanyDTO;
 import ua.goit.dto.ProjectDTO;
 import ua.goit.service.HibernateCompanyService;
@@ -33,11 +35,21 @@ public class CompanyProjectsServlet extends HttpServlet {
                     (HibernateDatabaseConnector.getSessionFactory());
 
             if (req.getParameter("table").equals("project")) {
-                ProjectDTO projectDTO = fromProject(projectService.findById(Integer.parseInt(req.getParameter("id"))));
-                req.setAttribute("result", projectDTO.toStringWithAssociative("company"));
+                Project project = projectService.findById(Integer.parseInt(req.getParameter("id")));
+                if (project!=null){
+                    ProjectDTO projectDTO = fromProject(project);
+                    req.setAttribute("result", projectDTO.toStringWithAssociative("company"));
+                } else {
+                    req.setAttribute("result", "An error has occurred, please resend the request");
+                }
             } else {
-                CompanyDTO companyDTO = fromCompany(companyService.findById(Integer.parseInt(req.getParameter("id"))));
-                req.setAttribute("result", companyDTO.toStringWithAssociative());
+                Company company = companyService.findById(Integer.parseInt(req.getParameter("id")));
+                if (company!=null){
+                    CompanyDTO companyDTO = fromCompany(company);
+                    req.setAttribute("result", companyDTO.toStringWithAssociative());
+                } else {
+                    req.setAttribute("result", "An error has occurred, please resend the request");
+                }
             }
             req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
         } catch (Exception e){

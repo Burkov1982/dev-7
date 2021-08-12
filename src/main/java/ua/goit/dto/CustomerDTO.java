@@ -48,9 +48,11 @@ public class CustomerDTO {
     }
 
     @Override
-    public String toString() {
-        return  "Customer_id: " + customer_id +
-                "Customer_name: " + customer_name;
+    public String toString(){
+        return String.format("""
+                Идентификатор заказчика: %s <br>
+                Имя заказчика: %s <br>
+                """, customer_id, customer_name);
     }
 
     public String toStringWithAssociative() {

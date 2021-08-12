@@ -1,6 +1,8 @@
 package ua.goit.controller.linkServlets.developerSkillsServlets;
 
 import ua.goit.config.HibernateDatabaseConnector;
+import ua.goit.dao.model.Developer;
+import ua.goit.dao.model.Skill;
 import ua.goit.dto.DeveloperDTO;
 import ua.goit.dto.SkillDTO;
 import ua.goit.service.HibernateDeveloperService;
@@ -25,17 +27,32 @@ public class DeveloperSkillsServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HibernateDeveloperService developerService = new HibernateDeveloperService
-                (HibernateDatabaseConnector.getSessionFactory());
-        HibernateSkillService skillService = new HibernateSkillService
-                (HibernateDatabaseConnector.getSessionFactory());
-        if (req.getParameter("table").equals("developer")) {
-            DeveloperDTO developerDTO = fromDeveloper(developerService.findById(Integer.parseInt(req.getParameter("id"))));
-            req.setAttribute("result", developerDTO.toStringWithAssociative("skill"));
-        } else {
-            SkillDTO skillDTO = fromSkill(skillService.findById(Integer.parseInt(req.getParameter("id"))));
-            req.setAttribute("result", skillDTO.toStringWithAssociative());
+        try {
+            HibernateDeveloperService developerService = new HibernateDeveloperService
+                    (HibernateDatabaseConnector.getSessionFactory());
+            HibernateSkillService skillService = new HibernateSkillService
+                    (HibernateDatabaseConnector.getSessionFactory());
+            if (req.getParameter("table").equals("developer")) {
+                Developer developer = developerService.findById(Integer.parseInt(req.getParameter("id")));
+                if (developer != null) {
+                    DeveloperDTO developerDTO = fromDeveloper(developer);
+                    req.setAttribute("result", developerDTO.toStringWithAssociative("skill"));
+                } else {
+                    req.setAttribute("result", "An error has occurred, please resend the request");
+                }
+            } else {
+                Skill skill = skillService.findById(Integer.parseInt(req.getParameter("id")));
+                if (skill != null) {
+                    SkillDTO skillDTO = fromSkill(skill);
+                    req.setAttribute("result", skillDTO.toStringWithAssociative());
+                } else {
+                    req.setAttribute("result", "An error has occurred, please resend the request");
+                }
+            }
+            req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
+        } catch (Exception e) {
+            req.setAttribute("result", "An error has occurred, please resend the request");
+            req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
         }
-        req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
     }
 }

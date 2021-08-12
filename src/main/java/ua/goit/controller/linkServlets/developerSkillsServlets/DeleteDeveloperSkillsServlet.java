@@ -30,14 +30,19 @@ public class DeleteDeveloperSkillsServlet extends HttpServlet {
 
             Skill skill = skillService.findById(Integer.parseInt(req.getParameter("skill_id")));
             Developer developer = developerService.findById(Integer.parseInt(req.getParameter("developer_id")));
-            skill.removeDeveloper(developer);
-            skillService.update(skill);
-            developerService.update(developer);
-            req.setAttribute("result", "Your request has been processed successfully");
+            if (skill!=null && developer!=null){
+                skill.removeDeveloper(developer);
+                skillService.update(skill);
+                developerService.update(developer);
+                req.setAttribute("result", "Your request has been processed successfully");
+            } else {
+                req.setAttribute("result", "An error has occurred, please resend the request");
+            }
+            req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
         } catch (Exception e) {
             e.printStackTrace();
             req.setAttribute("result", "An error has occurred, please resend the request");
+            req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
         }
-        req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
     }
 }

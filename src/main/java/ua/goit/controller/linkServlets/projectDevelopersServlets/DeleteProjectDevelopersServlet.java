@@ -31,14 +31,19 @@ public class DeleteProjectDevelopersServlet extends HttpServlet {
             Project project = projectService.findById(Integer.parseInt(req.getParameter("project_id")));
             Developer developer = developerService.findById(Integer.parseInt(req.getParameter("developer_id")));
 
-            project.removeDeveloper(developer);
+            if (project!=null && developer!=null){
+                project.removeDeveloper(developer);
 
-            projectService.update(project);
-            developerService.delete(developer);
-            req.setAttribute("result", "Your request has been processed successfully");
+                projectService.update(project);
+                developerService.delete(developer);
+                req.setAttribute("result", "Your request has been processed successfully");
+            } else {
+                req.setAttribute("result", "An error has occurred, please resend the request");
+            }
+            req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
         } catch (Exception e) {
             req.setAttribute("result", "An error has occurred, please resend the request");
+            req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
         }
-        req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
     }
 }

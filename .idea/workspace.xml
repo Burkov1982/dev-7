@@ -5,29 +5,59 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ee2031a-2ec1-4830-9b05-86599171afbc" name="Changes" comment="The logic of adding and deleting has been refactored. Added the ability to get information about associations">
-      <changelist_data name="Burkov1982" email="burkov_daniil@i.ua" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/view/getAll/links/companyProjectsFrom.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/view/getAll/links/customerProjectsForm.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/view/getAll/links/developerSkillsFrom.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/view/getAll/links/projectDevelopersFrom.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/companyServlets/AddCompanyServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/companyServlets/AddCompanyServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/companyServlets/CompaniesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/companyServlets/CompaniesServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/companyServlets/DeleteCompanyServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/companyServlets/DeleteCompanyServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/companyServlets/FindCompanyServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/companyServlets/FindCompanyServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/companyServlets/UpdateCompanyServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/companyServlets/UpdateCompanyServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/developerSkillsServlets/AddDeveloperSkillsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/developerSkillsServlets/AddDeveloperSkillsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/developerSkillsServlets/DeleteDeveloperSkillsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/developerSkillsServlets/DeleteDeveloperSkillsServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/developerSkillsServlets/DeveloperSkillsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/developerSkillsServlets/DeveloperSkillsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/projectDevelopersServlets/AddProjectDevelopersServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/projectDevelopersServlets/AddProjectDevelopersServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/projectDevelopersServlets/DeleteProjectDevelopersServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/projectDevelopersServlets/DeleteProjectDevelopersServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/projectDevelopersServlets/ProjectDevelopersServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/projectDevelopersServlets/ProjectDevelopersServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/сompanyProjectsServlets/AddCompanyProjectsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/сompanyProjectsServlets/AddCompanyProjectsServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/сompanyProjectsServlets/CompanyProjectsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/сompanyProjectsServlets/CompanyProjectsServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/сompanyProjectsServlets/DeleteCompanyProjectsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/сompanyProjectsServlets/DeleteCompanyProjectsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/сustomerProjectsServlets/AddCustomerProjectsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/сustomerProjectsServlets/AddCustomerProjectsServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/сustomerProjectsServlets/CustomerProjectsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/сustomerProjectsServlets/CustomerProjectsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/сustomerProjectsServlets/DeleteCustomerProjectsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/controller/linkServlets/сustomerProjectsServlets/DeleteCustomerProjectsServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dto/CompanyDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dto/CompanyDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dto/CustomerDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dto/CustomerDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dto/DeveloperDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dto/DeveloperDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dto/ProjectDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dto/ProjectDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/goit/dto/SkillDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/goit/dto/SkillDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/getAll/links.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/create/addCompany.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/create/addCompany.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/create/addCustomer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/create/addCustomer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/create/addDeveloper.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/create/addDeveloper.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/create/addProject.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/create/addProject.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/create/addSkill.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/create/addSkill.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/create/links/addCompanyProjectsFrom.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/create/links/addCompanyProjectsFrom.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/create/links/addCustomerProjectsForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/create/links/addCustomerProjectsForm.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/create/links/addDeveloperSkillsFrom.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/create/links/addDeveloperSkillsFrom.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/create/links/addProjectDevelopersFrom.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/create/links/addProjectDevelopersFrom.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/delete/deleteCompany.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/delete/deleteCompany.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/delete/deleteCustomer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/delete/deleteCustomer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/delete/deleteDeveloper.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/delete/deleteDeveloper.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/delete/deleteLink.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/delete/deleteProject.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/delete/deleteProject.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/delete/deleteSkill.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/delete/deleteSkill.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/delete/links/deleteCompanyProjectsFrom.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/delete/links/deleteCompanyProjectsFrom.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/delete/links/deleteCustomerProjectsForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/delete/links/deleteCustomerProjectsForm.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/delete/links/deleteDeveloperSkillsFrom.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/delete/links/deleteDeveloperSkillsFrom.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/delete/links/deleteProjectDevelopersFrom.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/delete/links/deleteProjectDevelopersFrom.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/findById/findCompany.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/findById/findCompany.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/findById/findCustomer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/findById/findCustomer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/findById/findDeveloper.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/findById/findDeveloper.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/findById/findProject.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/findById/findProject.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/findById/findSkill.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/findById/findSkill.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/getAll/companies.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/getAll/customers.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/getAll/developers.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/getAll/projects.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/getAll/skills.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/update/updateCompany.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/update/updateCompany.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/update/updateCustomer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/update/updateCustomer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/update/updateDeveloper.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/update/updateDeveloper.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/update/updateProject.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/update/updateProject.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/update/updateSkill.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/update/updateSkill.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dto/CompanyDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dto/CompanyDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dto/CustomerDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dto/CustomerDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dto/DeveloperDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dto/DeveloperDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dto/ProjectDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dto/ProjectDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ua/goit/dto/SkillDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/goit/dto/SkillDTO.class" afterDir="false" />
@@ -244,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628755388042</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="The logic of adding and deleting has been refactored. Added the ability to get information about associations">
+      <created>1628785313977</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1628785313977</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

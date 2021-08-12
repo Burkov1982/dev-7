@@ -31,14 +31,18 @@ public class DeleteCustomerProjectsServlet extends HttpServlet {
             Project project = projectService.findById(Integer.parseInt(req.getParameter("project_id")));
             Customer customer = customerService.findById(Integer.parseInt(req.getParameter("customer_id")));
 
-            customer.removeProject(project);
-
-            customerService.update(customer);
-            projectService.update(project);
-            req.setAttribute("result", "Your request has been processed successfully");
+            if (project!=null && customer!=null){
+                customer.removeProject(project);
+                customerService.update(customer);
+                projectService.update(project);
+                req.setAttribute("result", "Your request has been processed successfully");
+            } else {
+                req.setAttribute("result", "An error has occurred, please resend the request");
+            }
+            req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
         } catch (Exception e) {
             req.setAttribute("result", "An error has occurred, please resend the request");
+            req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
         }
-        req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
     }
 }

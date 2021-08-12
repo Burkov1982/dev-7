@@ -45,8 +45,8 @@ input[type=submit]:hover {
 	<div class="w3-container">
 
       <form action="/addCustomerProjects" method="POST">
-        <input type="number" id="customer_id" name="customer_id" placeholder="Enter customer id">
-        <input type="number" id="project_id" name="project_id" placeholder="Enter project id">
+        <input type="number" id="customer_id" name="customer_id" required="" placeholder="Enter customer id">
+        <input type="number" id="project_id" name="project_id" required="" placeholder="Enter project id">
         <input type="submit" value="Submit">
       </form>
 	</div>

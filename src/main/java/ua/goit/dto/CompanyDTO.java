@@ -73,10 +73,12 @@ public class CompanyDTO {
     }
 
     @Override
-    public String toString(){
-        return "Company id: " + company_id
-                + "Company name: " + company_name
-                + "Company headquarters:" + headquarters;
+    public String toString() {
+        return  String.format("""
+                Идентификатор компании: %s <br>
+                Название компании: %s <br>
+                Главный офис  компании: %s <br>
+                """, company_id, company_name, headquarters);
     }
 
     public String toStringWithAssociative() {
