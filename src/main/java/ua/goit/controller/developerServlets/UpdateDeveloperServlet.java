@@ -24,13 +24,18 @@ public class UpdateDeveloperServlet extends HttpServlet {
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        DeveloperDTO developerDTO = new DeveloperDTO();
-        developerDTO.setDeveloper_id(Integer.parseInt(req.getParameter("developerId")));
-        developerDTO.setFirst_name(req.getParameter("firstname"));
-        developerDTO.setLast_name(req.getParameter("lastname"));
-        developerDTO.setGender(req.getParameter("gender"));
-        developerDTO.setSalary(Integer.parseInt(req.getParameter("salary")));
-        req.setAttribute("result", service.update(toDeveloper(developerDTO)).toString());
-        req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
+        try {
+            DeveloperDTO developerDTO = new DeveloperDTO();
+            developerDTO.setDeveloper_id(Integer.parseInt(req.getParameter("developerId")));
+            developerDTO.setFirst_name(req.getParameter("firstname"));
+            developerDTO.setLast_name(req.getParameter("lastname"));
+            developerDTO.setGender(req.getParameter("gender"));
+            developerDTO.setSalary(Integer.parseInt(req.getParameter("salary")));
+            req.setAttribute("result", service.update(toDeveloper(developerDTO)).toString());
+            req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
+        } catch (Exception e){
+            req.setAttribute("result", "An error has occurred, please resend the request");
+            req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
+        }
     }
 }

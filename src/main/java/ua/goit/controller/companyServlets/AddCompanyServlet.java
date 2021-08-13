@@ -24,10 +24,15 @@ public class AddCompanyServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        CompanyDTO dto = new CompanyDTO();
-        dto.setCompany_name(req.getParameter("companyName"));
-        dto.setHeadquarters(req.getParameter("headquarters"));
-        req.setAttribute("result", hibernateCompanyService.create(toCompany(dto)).toString());
-        req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
+        try {
+            CompanyDTO dto = new CompanyDTO();
+            dto.setCompany_name(req.getParameter("companyName"));
+            dto.setHeadquarters(req.getParameter("headquarters"));
+            req.setAttribute("result", hibernateCompanyService.create(toCompany(dto)).toString());
+            req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
+        } catch (Exception e){
+            req.setAttribute("result", "An error has occurred, please resend the request");
+            req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
+        }
     }
 }

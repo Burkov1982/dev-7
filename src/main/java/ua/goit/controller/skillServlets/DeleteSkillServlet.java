@@ -25,10 +25,15 @@ public class DeleteSkillServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        SkillDTO skillDTO = new SkillDTO();
-        skillDTO.setSkill_id(Integer.parseInt(req.getParameter("skillID")));
-        String result = service.delete(toSkill(skillDTO));
-        req.setAttribute("result", result);
-        req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
+        try {
+            SkillDTO skillDTO = new SkillDTO();
+            skillDTO.setSkill_id(Integer.parseInt(req.getParameter("skillID")));
+            String result = service.delete(toSkill(skillDTO));
+            req.setAttribute("result", result);
+            req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
+        } catch (Exception e){
+            req.setAttribute("result", "An error has occurred, please resend the request");
+            req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
+        }
     }
 }

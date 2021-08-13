@@ -52,23 +52,23 @@ public abstract class HibernateAbstractDAO<T> implements HibernateDAO<T> {
 
     @Override
     public void update(T entity) throws Exception{
-        Transaction transaction = null;
-        try (Session session = sessionFactory.openSession()) {
-            transaction = session.beginTransaction();
-            session.update(entity);
-            transaction.commit();
-        } catch (Exception ex) {
-            LOG.error("update. ", ex);
-            if (Objects.nonNull(transaction)) {
-                transaction.rollback();
+            Transaction transaction = null;
+            try (Session session = sessionFactory.openSession()) {
+                transaction = session.beginTransaction();
+                session.update(entity);
+                transaction.commit();
+            } catch (Exception ex) {
+                LOG.error("update. ", ex);
+                if (Objects.nonNull(transaction)) {
+                    transaction.rollback();
+                }
             }
-        }
     }
 
     @Override
     public void delete(int id) throws Exception{
         T toDelete = findById(id);
-        if (Objects.nonNull(toDelete)) {
+        if (toDelete!=null) {
             Transaction transaction = null;
             try (Session session = sessionFactory.openSession()) {
                 transaction = session.beginTransaction();
@@ -81,6 +81,9 @@ public abstract class HibernateAbstractDAO<T> implements HibernateDAO<T> {
                     transaction.rollback();
                 }
             }
+        } else {
+            throw new RuntimeException("Error from delete method of HibernateDAO " + entityClass.getName()
+                    + " -> invalid identifier value");
         }
     }
 

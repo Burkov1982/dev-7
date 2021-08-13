@@ -25,9 +25,15 @@ public class DeleteCompanyServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        CompanyDTO companyDTO = new CompanyDTO();
-        companyDTO.setCompany_id(Integer.parseInt(req.getParameter("companyID")));
-        req.setAttribute("result", hibernateCompanyService.delete(toCompany(companyDTO)));
-        req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
+        try {
+            CompanyDTO companyDTO = new CompanyDTO();
+            companyDTO.setCompany_id(Integer.parseInt(req.getParameter("companyID")));
+            req.setAttribute("result", hibernateCompanyService.delete(toCompany(companyDTO)));
+            req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
+            req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
+        } catch (Exception e) {
+            req.setAttribute("result", "An error has occurred, please resend the request");
+            req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
+        }
     }
 }

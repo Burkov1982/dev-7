@@ -22,7 +22,12 @@ public class FindCompanyServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("result", service.findById(Integer.parseInt(req.getParameter("companyID"))).toString());
-        req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
+        try {
+            req.setAttribute("result", service.findById(Integer.parseInt(req.getParameter("companyID"))).toString());
+            req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
+        } catch (Exception e){
+            req.setAttribute("result", "An error has occurred, please resend the request");
+            req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
+        }
     }
 }

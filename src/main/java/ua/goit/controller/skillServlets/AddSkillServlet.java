@@ -25,10 +25,15 @@ public class AddSkillServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        SkillDTO skillDTO = new SkillDTO();
-        skillDTO.setBranch(req.getParameter("branch"));
-        skillDTO.setStage(req.getParameter("stage"));
-        req.setAttribute("result", service.create(toSkill(skillDTO)).toString());
-        req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
+        try {
+            SkillDTO skillDTO = new SkillDTO();
+            skillDTO.setBranch(req.getParameter("branch"));
+            skillDTO.setStage(req.getParameter("stage"));
+            req.setAttribute("result", service.create(toSkill(skillDTO)).toString());
+            req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
+        } catch (Exception e){
+            req.setAttribute("result", "An error has occurred, please resend the request");
+            req.getRequestDispatcher("/view/print/printMessage.jsp").forward(req, resp);
+        }
     }
 }
