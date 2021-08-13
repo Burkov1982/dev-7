@@ -53,34 +53,3 @@ developer_id int NOT NULL,
 PRIMARY KEY (skill_id, developer_id),
 FOREIGN KEY (skill_id) REFERENCES skills(skill_id),
 FOREIGN KEY (developer_id) REFERENCES developers(developer_id));
-
-
-INSERT INTO developers (first_name, last_name, gender, salary)
-				VALUES ('Denis', 'Ivanov', 'male', 2100),
-					   ('Olga', 'Petrova', 'female', 800),
-					   ('Ivan', 'Denisov', 'male', 1100);
-INSERT INTO projects (project_name, project_description, cost, start_date)
-			  VALUES ('PBB', 'Pocket Bank Bot', 3200, '2020-10-20'),
-				     ('SL', 'SmartLibrary project', 4000, '2019-01-10'),
-				     ('SDB', 'SmartDayBook project', 2900, '2021-05-27');
-INSERT INTO customers (customer_name)
-			   VALUES ('Petr Bubnov'),
-			   		  ('Irina Sokolova'),
-					  ('Vasilii Petrenko');
-INSERT INTO skills (branch, stage)
-			VALUES ('Java', 'Junior'),
-				   ('Java', 'Middle'),
-				   ('Java', 'Senior'),
-				   ('Ruby', 'Junior'),
-				   ('Ruby', 'Middle'),
-				   ('Ruby', 'Senior'),
-				   ('PHP', 'Junior'),
-				   ('PHP', 'Middle'),
-				   ('PHP', 'Senior'),
-				   ('Python', 'Junior'),
-				   ('Python', 'Middle'),
-				   ('Python', 'Senior');
-INSERT INTO companies (company_name, headquarters)
-			   VALUES ('SmartShop', 'USA'),
-			          ('AMAZON', 'USA'),
-		       	      ('ProMANAGENT', 'Ukraine');
